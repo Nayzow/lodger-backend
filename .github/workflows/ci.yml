@@ -99,13 +99,15 @@ jobs:
           dotnet sonarscanner begin \
             /k:"Nayzow_lodger-backend" \
             /o:"nayzow" \
-            /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
             /d:sonar.host.url="https://sonarcloud.io" \
             /d:sonar.cs.opencover.reportsPaths="src/Tests/Artifacts/CoverageReport/coverage.opencover.xml"
-
-          dotnet build src/App/LodgerBackend.csproj --no-restore
-
-          dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          
+          dotnet restore src/App/LodgerBackend.csproj
+          dotnet build src/App/LodgerBackend.csproj
+          dotnet test src/Tests/Tests.csproj --no-build
+          
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
   deploy_pages:
     runs-on: ubuntu-latest
