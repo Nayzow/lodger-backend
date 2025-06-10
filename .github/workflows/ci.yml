@@ -2,9 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ main, develop, release-do ]
+    branches: [ main, develop ]
   pull_request:
-    branches: [ main, develop, release-do ]
+    branches: [ main, develop ]
 
 env:
   DOTNET_VERSION: '9.0.x'
@@ -36,9 +36,6 @@ jobs:
           dotnet tool install --global trx2junit
           dotnet tool install --global dotnet-reportgenerator-globaltool
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
-
-#      - name: Format check
-#        run: dotnet format src/App/LodgerBackend.csproj --verify-no-changes
 
       - name: Restore dependencies
         run: dotnet restore src/App/LodgerBackend.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
@@ -78,29 +75,6 @@ jobs:
           name: test-artifacts
           path: ${{ env.TEST_ARTIFACTS_DIR }}
 
-#  docker_release:
-#    runs-on: ubuntu-latest
-#    needs: build_and_test
-#    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/release-do')
-#
-#    steps:
-#      - name: Checkout repo
-#        uses: actions/checkout@v4
-#
-#      - name: Setup Docker Buildx
-#        uses: docker/setup-buildx-action@v3
-#
-#      - name: Log in to DockerHub
-#        uses: docker/login-action@v3
-#        with:
-#          username: ${{ secrets.DOCKER_USERNAME }}
-#          password: ${{ secrets.DOCKER_PASSWORD }}
-#
-#      - name: Build and push Docker image
-#        run: |
-#          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/lodger-backend:${{ github.ref_name }} .
-#          docker push ${{ secrets.DOCKER_USERNAME }}/lodger-backend:${{ github.ref_name }}
-
   deploy_pages:
     runs-on: ubuntu-latest
     needs: build_and_test
@@ -115,6 +89,14 @@ jobs:
         with:
           name: test-artifacts
           path: public
+
+      - name: Check if coverage report exists
+        run: |
+          if [ ! -d "public/CoverageReport" ]; then
+            echo "::warning ::Pas de rapport de couverture à publier."
+            mkdir -p public/CoverageReport
+            echo "<h1>Aucun rapport généré</h1>" > public/CoverageReport/index.html
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
