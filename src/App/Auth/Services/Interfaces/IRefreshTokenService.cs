@@ -1,7 +1,7 @@
-using LodgerBackend.App.Auth.Models.Entities;
-using LodgerBackend.App.Auth.Models.Payloads;
+using LodgerBackend.Auth.Models.Entities;
+using LodgerBackend.Auth.Models.Payloads;
 
-namespace LodgerBackend.App.Auth.Services.Interfaces;
+namespace LodgerBackend.Auth.Services.Interfaces;
 
 public interface IRefreshTokenService
 {

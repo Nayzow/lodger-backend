@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LodgerBackend.App.Document.Enum;
-using LodgerBackend.App.User.Models.Entities;
+using LodgerBackend.Document.Enum;
 
-
-namespace LodgerBackend.App.Document.Models;
+namespace LodgerBackend.Document.Models;
 
 [Table("documents")]
 public class Document

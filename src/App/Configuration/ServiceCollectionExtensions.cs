@@ -1,26 +1,26 @@
-using LodgerBackend.App.Auth.Repositories.Implementations;
-using LodgerBackend.App.Auth.Repositories.Interfaces;
-using LodgerBackend.App.Auth.Services.Implementations;
-using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.Configuration.DbContext;
-using LodgerBackend.App.Configuration.Settings;
-using LodgerBackend.App.Device.Repositories;
-using LodgerBackend.App.Device.Services;
-using LodgerBackend.App.Document.Repositories;
-using LodgerBackend.App.Document.Services;
-using LodgerBackend.App.File.Services;
-using LodgerBackend.App.Payment.Repositories;
-using LodgerBackend.App.Payment.Services;
-using LodgerBackend.App.RentalFile.Repositories;
-using LodgerBackend.App.RentalFile.Services;
-using LodgerBackend.App.Settings;
-using LodgerBackend.App.Settings.Repositories;
-using LodgerBackend.App.User.Repositories;
-using LodgerBackend.App.User.Services;
+using LodgerBackend.Auth.Repositories.Implementations;
+using LodgerBackend.Auth.Repositories.Interfaces;
+using LodgerBackend.Auth.Services.Implementations;
+using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.Configuration.DbContext;
+using LodgerBackend.Configuration.Settings;
+using LodgerBackend.Device.Repositories;
+using LodgerBackend.Device.Services;
+using LodgerBackend.Document.Repositories;
+using LodgerBackend.Document.Services;
+using LodgerBackend.File.Services;
+using LodgerBackend.Payment.Repositories;
+using LodgerBackend.Payment.Services;
+using LodgerBackend.RentalFile.Repositories;
+using LodgerBackend.RentalFile.Services;
+using LodgerBackend.Setting;
+using LodgerBackend.Setting.Repositories;
+using LodgerBackend.User.Repositories;
+using LodgerBackend.User.Services;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.Configuration;
+namespace LodgerBackend.Configuration;
 
 public static class ServiceCollectionExtensions
 {

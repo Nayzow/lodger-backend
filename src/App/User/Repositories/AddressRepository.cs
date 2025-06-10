@@ -1,9 +1,8 @@
-using LodgerBackend.App.Configuration.DbContext;
-using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Models.Entities;
+using LodgerBackend.Configuration.DbContext;
+using LodgerBackend.User.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.User.Repositories;
+namespace LodgerBackend.User.Repositories;
 
 public class AddressRepository(LodgerDbContext dbContext) : IAddressRepository
 {

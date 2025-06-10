@@ -1,11 +1,11 @@
-using LodgerBackend.App.File.dtos;
+using System.Text;
+using LodgerBackend.File.dtos;
 using Microsoft.AspNetCore.Mvc;
 using Minio;
 using Minio.DataModel.Args;
 using Minio.Exceptions;
-using System.Text;
 
-namespace LodgerBackend.App.File.Services;
+namespace LodgerBackend.File.Services;
 
 public class MinioService(IMinioClient minioClient, ILogger<MinioService> logger) : IFileService
 {

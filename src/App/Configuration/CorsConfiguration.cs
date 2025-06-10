@@ -1,4 +1,4 @@
-namespace LodgerBackend.App.Configuration;
+namespace LodgerBackend.Configuration;
 
 public static class CorsConfiguration
 {

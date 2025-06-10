@@ -1,6 +1,6 @@
-﻿using LodgerBackend.src.App.Settings.Dtos;
+﻿using LodgerBackend.Setting.Dtos;
 
-namespace LodgerBackend.App.Settings;
+namespace LodgerBackend.Setting;
 
 public interface ISettingsService
 {

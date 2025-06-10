@@ -2,12 +2,12 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using LodgerBackend.App.Auth.Models.Entities;
-using LodgerBackend.App.Auth.Repositories.Interfaces;
-using LodgerBackend.App.Auth.Services.Interfaces;
+using LodgerBackend.Auth.Models.Entities;
+using LodgerBackend.Auth.Repositories.Interfaces;
+using LodgerBackend.Auth.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
-namespace LodgerBackend.App.Auth.Services.Implementations;
+namespace LodgerBackend.Auth.Services.Implementations;
 
 public class TokenService(
     IConfiguration configuration,

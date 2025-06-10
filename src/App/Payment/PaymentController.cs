@@ -1,9 +1,9 @@
-﻿using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.Payment.Services;
+﻿using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.Payment.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.Payment;
+namespace LodgerBackend.Payment;
 
 [ApiController]
 [Route("api/[controller]")]

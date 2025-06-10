@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.Payment.Models;
+﻿namespace LodgerBackend.Payment.Models;
 
 public class PaymentDto
 {

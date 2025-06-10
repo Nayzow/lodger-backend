@@ -1,9 +1,7 @@
-﻿using LodgerBackend.App.Auth.Services.Implementations;
-using LodgerBackend.App.Configuration.DbContext;
+﻿using LodgerBackend.Configuration.DbContext;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
-namespace LodgerBackend.App.Device.Repositories;
+namespace LodgerBackend.Device.Repositories;
 
 public class DeviceRepository(LodgerDbContext dbContext) : IDeviceRepository
 {

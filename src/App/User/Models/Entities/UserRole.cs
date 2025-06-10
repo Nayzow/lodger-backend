@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.User.Models.Entities;
+namespace LodgerBackend.User.Models.Entities;
 
 [Table("user_roles")]
 [Keyless]

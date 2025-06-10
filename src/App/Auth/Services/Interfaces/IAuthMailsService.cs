@@ -1,4 +1,4 @@
-namespace LodgerBackend.App.Auth.Services.Interfaces;
+namespace LodgerBackend.Auth.Services.Interfaces;
 
 public interface IAuthMailsService
 {

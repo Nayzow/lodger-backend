@@ -1,10 +1,10 @@
-﻿using LodgerBackend.App.Auth.Models.Payloads;
-using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.Configuration.DbContext;
-using LodgerBackend.App.User.Services;
+﻿using LodgerBackend.Auth.Models.Payloads;
+using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.Configuration.DbContext;
+using LodgerBackend.User.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.Configuration.Helpers
+namespace LodgerBackend.Configuration.Helpers
 {
     public static class SwaggerAuthHelper
     {

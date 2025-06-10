@@ -1,6 +1,6 @@
-﻿using LodgerBackend.App.Payment.Models;
+﻿using LodgerBackend.Payment.Models;
 
-namespace LodgerBackend.App.Payment.Services;
+namespace LodgerBackend.Payment.Services;
 
 public interface IPaymentService
 {

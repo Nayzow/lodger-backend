@@ -1,7 +1,7 @@
-﻿using LodgerBackend.App.File.dtos;
+﻿using LodgerBackend.File.dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.File.Models;
+namespace LodgerBackend.File.Models;
 
 public class UploadFileRequest
 {

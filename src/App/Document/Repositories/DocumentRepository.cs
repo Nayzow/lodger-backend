@@ -1,9 +1,8 @@
-﻿using LodgerBackend.App.Configuration.DbContext;
-using LodgerBackend.App.Document.Enum;
-using LodgerBackend.App.User.Models.Entities;
+﻿using LodgerBackend.Configuration.DbContext;
+using LodgerBackend.Document.Enum;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.Document.Repositories;
+namespace LodgerBackend.Document.Repositories;
 
 public class DocumentRepository(LodgerDbContext dbContext) : IDocumentRepository
 {

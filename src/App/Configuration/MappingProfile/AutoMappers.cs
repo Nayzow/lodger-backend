@@ -1,21 +1,18 @@
 ﻿using System.Globalization;
 using AutoMapper;
-using LodgerBackend.App.Device.Models;
-using LodgerBackend.App.Document.Enum;
-using LodgerBackend.App.Document.Models;
-using LodgerBackend.App.Payment.Models;
-using LodgerBackend.App.RentalFile;
-using LodgerBackend.App.RentalFile.Enums;
-using LodgerBackend.App.RentalFile.Models;
-using LodgerBackend.App.Settings.Models;
-using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Models.Entities;
-using LodgerBackend.App.User.Models.Enums;
-using LodgerBackend.src.App.RentalFile.Enums;
-using LodgerBackend.src.App.Settings.Dtos;
-using LodgerBackend.src.App.Settings.Enums;
+using LodgerBackend.Device.Models;
+using LodgerBackend.Document.Enum;
+using LodgerBackend.Document.Models;
+using LodgerBackend.Payment.Models;
+using LodgerBackend.RentalFile.Enums;
+using LodgerBackend.RentalFile.Models;
+using LodgerBackend.Setting.Dtos;
+using LodgerBackend.Setting.Enums;
+using LodgerBackend.User.Models.Dtos;
+using LodgerBackend.User.Models.Entities;
+using LodgerBackend.User.Models.Enums;
 
-namespace LodgerBackend.App.Configuration.MappingProfile
+namespace LodgerBackend.Configuration.MappingProfile
 
 {
     public class UserProfile : Profile
@@ -39,7 +36,7 @@ namespace LodgerBackend.App.Configuration.MappingProfile
 
 
             // Mappage de Settings vers UpdateNotificationSettingsDto
-            CreateMap<LodgerBackend.App.Settings.Models.Settings, UpdateSettingsDto>()
+            CreateMap<Setting.Models.Settings, UpdateSettingsDto>()
                 .ForMember(dest => dest.Push, opt => opt.MapFrom(src => src.Theme == ENotification.NotificationPush))  // Utiliser l'énumération pour remplir le booléen
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Theme == ENotification.Email))
                 .ForMember(dest => dest.Sms, opt => opt.MapFrom(src => src.Theme == ENotification.SMS))
@@ -48,7 +45,7 @@ namespace LodgerBackend.App.Configuration.MappingProfile
                 .ForMember(dest => dest.AccountSecurity, opt => opt.MapFrom(src => src.Theme == ENotification.AccountSecurity));
 
             // Mappage inverse de UpdateNotificationSettingsDto vers Settings
-            CreateMap<UpdateSettingsDto, LodgerBackend.App.Settings.Models.Settings>()
+            CreateMap<UpdateSettingsDto, Setting.Models.Settings>()
                 .ForMember(dest => dest.Theme, opt => opt.MapFrom(src => GetThemeFromDto(src)));
 
             CreateMap<Payment.Models.Payment, PaymentDto>().ReverseMap();

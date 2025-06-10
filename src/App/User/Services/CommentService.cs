@@ -1,14 +1,7 @@
-using AutoMapper;
-using LodgerBackend.App.Configuration.DbContext;
-using LodgerBackend.App.Document.Repositories;
-using LodgerBackend.App.Document.Services;
-using LodgerBackend.App.File.Services;
-using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Models.Entities;
-using LodgerBackend.App.User.Repositories;
-using Microsoft.EntityFrameworkCore;
+using LodgerBackend.User.Models.Entities;
+using LodgerBackend.User.Repositories;
 
-namespace LodgerBackend.App.User.Services;
+namespace LodgerBackend.User.Services;
 
 public class CommentService(ICommentRepository commentRepository) : ICommentService
 {

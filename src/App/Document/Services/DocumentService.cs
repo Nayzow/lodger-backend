@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using LodgerBackend.App.Document.Enum;
-using LodgerBackend.App.Document.Models;
-using LodgerBackend.App.Document.Repositories;
-using LodgerBackend.App.File.dtos;
-using LodgerBackend.App.File.Services;
+using LodgerBackend.Document.Enum;
+using LodgerBackend.Document.Models;
+using LodgerBackend.Document.Repositories;
+using LodgerBackend.File.dtos;
+using LodgerBackend.File.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.Document.Services;
+namespace LodgerBackend.Document.Services;
 
 public class DocumentService(
     IDocumentRepository documentRepository,

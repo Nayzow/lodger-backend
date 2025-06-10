@@ -1,9 +1,9 @@
-﻿using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.RentalFile.Models;
-using LodgerBackend.App.RentalFile.Services;
+﻿using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.RentalFile.Models;
+using LodgerBackend.RentalFile.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.RentalFile;
+namespace LodgerBackend.RentalFile;
 
 [ApiController]
 [Route("[controller]")]

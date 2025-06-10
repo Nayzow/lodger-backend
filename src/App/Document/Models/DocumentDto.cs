@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.Document.Models;
+namespace LodgerBackend.Document.Models;
 
 public class DocumentDto
 {

@@ -1,16 +1,13 @@
 ﻿using AutoMapper;
-using LodgerBackend.App.Configuration.DbContext;
-using LodgerBackend.App.Document.Enum;
-using LodgerBackend.App.Document.Services;
-using LodgerBackend.App.RentalFile.Models;
-using LodgerBackend.App.RentalFile.Repositories;
-using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Models.Entities;
-using LodgerBackend.App.User.Repositories;
-using LodgerBackend.App.User.Services;
+using LodgerBackend.Configuration.DbContext;
+using LodgerBackend.Document.Enum;
+using LodgerBackend.Document.Services;
+using LodgerBackend.RentalFile.Models;
+using LodgerBackend.RentalFile.Repositories;
+using LodgerBackend.User.Services;
 using Microsoft.IdentityModel.Tokens;
 
-namespace LodgerBackend.App.RentalFile.Services;
+namespace LodgerBackend.RentalFile.Services;
 
 public class RentalFileService(IRentalFileRepository rentalFileRepository,
     IDocumentService documentService,

@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.RentalFile.Repositories;
+﻿namespace LodgerBackend.RentalFile.Repositories;
 
 public interface IRentalFileRepository
 {

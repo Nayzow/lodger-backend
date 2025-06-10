@@ -1,6 +1,6 @@
-﻿using LodgerBackend.App.Auth.Models.Entities;
+﻿using LodgerBackend.Auth.Models.Entities;
 
-namespace LodgerBackend.App.Auth.Repositories.Interfaces;
+namespace LodgerBackend.Auth.Repositories.Interfaces;
 
 public interface IResetPasswordRequestRepository
 {

@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using LodgerBackend.App.Payment.Models;
-using LodgerBackend.App.Payment.Repositories;
-using LodgerBackend.App.Settings.Models;
+using LodgerBackend.Payment.Models;
+using LodgerBackend.Payment.Repositories;
 
-namespace LodgerBackend.App.Payment.Services;
+namespace LodgerBackend.Payment.Services;
 
 public class PaymentService(IPaymentRepository paymentRepository, ILogger<PaymentService> logger, IMapper mapper) : IPaymentService
 {

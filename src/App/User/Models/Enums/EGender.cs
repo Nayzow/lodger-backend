@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.User.Models.Enums
+﻿namespace LodgerBackend.User.Models.Enums
 {
     public enum EGender
     {

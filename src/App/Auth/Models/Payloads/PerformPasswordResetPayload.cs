@@ -1,6 +1,6 @@
-﻿using LodgerBackend.App.Auth.Models.Entities;
+﻿using LodgerBackend.Auth.Models.Entities;
 
-namespace LodgerBackend.App.Auth.Models.Payloads;
+namespace LodgerBackend.Auth.Models.Payloads;
 
 public class PerformPasswordResetPayload
 {

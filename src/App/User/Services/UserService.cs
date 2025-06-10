@@ -1,11 +1,10 @@
 using AutoMapper;
-using LodgerBackend.App.Configuration.DbContext;
-using LodgerBackend.App.Document.Services;
-using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Models.Entities;
-using LodgerBackend.App.User.Repositories;
+using LodgerBackend.Configuration.DbContext;
+using LodgerBackend.User.Models.Dtos;
+using LodgerBackend.User.Models.Entities;
+using LodgerBackend.User.Repositories;
 
-namespace LodgerBackend.App.User.Services;
+namespace LodgerBackend.User.Services;
 
 public class UserService(
     IUserRepository userRepository,

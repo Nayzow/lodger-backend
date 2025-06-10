@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.src.App.Settings.Enums
+﻿namespace LodgerBackend.Setting.Enums
 {
     public enum ENotification
     {

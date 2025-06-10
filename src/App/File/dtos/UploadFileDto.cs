@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.File.dtos;
+namespace LodgerBackend.File.dtos;
 
 public class UploadFileDto
 {

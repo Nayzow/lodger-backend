@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace LodgerBackend.App.Device.Models;
+namespace LodgerBackend.Device.Models;
 
 public class DeviceDto
 {

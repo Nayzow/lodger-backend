@@ -1,9 +1,9 @@
-using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.File.dtos;
-using LodgerBackend.App.File.Services;
+using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.File.dtos;
+using LodgerBackend.File.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.File;
+namespace LodgerBackend.File;
 
 [ApiController]
 [Route("api/[controller]")]

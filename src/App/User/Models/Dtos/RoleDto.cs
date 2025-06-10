@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.User.Models.Dtos;
+﻿namespace LodgerBackend.User.Models.Dtos;
 
 public class RoleDto
 {

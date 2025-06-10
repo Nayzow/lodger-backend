@@ -1,10 +1,9 @@
 ﻿using System.Net;
 using AutoMapper;
-using LodgerBackend.App.Device.Models;
-using LodgerBackend.App.Device.Repositories;
-using Microsoft.AspNetCore.Http;
+using LodgerBackend.Device.Models;
+using LodgerBackend.Device.Repositories;
 
-namespace LodgerBackend.App.Device.Services;
+namespace LodgerBackend.Device.Services;
 
 public class DeviceService(IDeviceRepository deviceRepository,
     IHttpContextAccessor httpContextAccessor,

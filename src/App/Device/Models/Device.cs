@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LodgerBackend.App.Device.Models;
+namespace LodgerBackend.Device.Models;
 
 [Table("devices")]
 public class Device

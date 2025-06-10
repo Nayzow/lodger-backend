@@ -1,10 +1,10 @@
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using LodgerBackend.App.Auth;
-using LodgerBackend.App.Configuration;
-using LodgerBackend.App.Configuration.Helpers;
-using LodgerBackend.App.Configuration.MappingProfile;
+using LodgerBackend.Auth;
+using LodgerBackend.Configuration;
+using LodgerBackend.Configuration.Helpers;
+using LodgerBackend.Configuration.MappingProfile;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Minio;

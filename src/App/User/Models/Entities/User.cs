@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LodgerBackend.App.User.Models.Enums;
+using LodgerBackend.Setting.Models;
+using LodgerBackend.User.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.User.Models.Entities;
+namespace LodgerBackend.User.Models.Entities;
 
 
 [Table("users")]
@@ -51,7 +52,7 @@ public class User
     
     public virtual RentalFile.Models.RentalFile? RentalFile { get; set; }
 
-    public ICollection<Settings.Models.Settings> Settings { get; set; } = new List<Settings.Models.Settings>();
+    public ICollection<Settings> Settings { get; set; } = new List<Settings>();
     public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     public ICollection<Payment.Models.Payment> Payments { get; set; } = new List<Payment.Models.Payment>();
     public ICollection<Document.Models.Document> Documents { get; set; } = new List<Document.Models.Document>();

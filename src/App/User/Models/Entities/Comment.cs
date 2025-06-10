@@ -1,9 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LodgerBackend.App.User.Models.Enums;
-using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.User.Models.Entities;
+namespace LodgerBackend.User.Models.Entities;
 
 
 [Table("comments")]
@@ -20,7 +18,7 @@ public class Comment
 
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     #endregion
-    #region Clé étrangère
+    #region Clï¿½ ï¿½trangï¿½re
 
     [ForeignKey(nameof(User))]
     [Column("user_id")]

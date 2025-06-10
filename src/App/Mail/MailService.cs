@@ -1,10 +1,10 @@
-using LodgerBackend.App.Configuration.Settings;
+using LodgerBackend.Configuration.Settings;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using Task = System.Threading.Tasks.Task;
 
-namespace LodgerBackend.App.Mail;
+namespace LodgerBackend.Mail;
 
 public abstract class MailsService(IOptions<SmtpSettings> smtpSettings, ILogger<MailsService> logger)
 {
