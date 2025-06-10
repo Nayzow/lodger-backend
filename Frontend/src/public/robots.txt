@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /search/
+Disallow: /api/
+Disallow: /store/
+Disallow: /layouts/
+Disallow: /assets/
+
+Allow: /public/
+Allow: /pages/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+Sitemap: https://lodgerapp.com/sitemap.xml

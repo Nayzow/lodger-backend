@@ -1,0 +1,52 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run clean && npm run optimizeTailwindcss && npm run postinstall && nuxt build && rimraf src/assets/css/tailwind.css",
+    "dev": "npx nuxi dev --dotenv .env.local",
+    "start": "node .output/server/index.mjs",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "analyze": "nuxt build --analyze",
+    "clean": "nuxt cleanup",
+    "optimizeTailwindcss": "npx tailwindcss -i src/assets/css/main.css -o ./assets/css/tailwind.css"
+  },
+  "dependencies": {
+    "@nuxt/fonts": "^0.10.2",
+    "@nuxt/icon": "^1.10.3",
+    "@nuxt/image": "^1.7.0",
+    "@nuxt/ui": "^2.21.0",
+    "@nuxtjs/device": "^3.2.4",
+    "@nuxtjs/leaflet": "^1.2.3",
+    "@pinia/nuxt": "^0.10.1",
+    "@pinia/testing": "^1.0.0",
+    "@sidebase/nuxt-auth": "^0.10.0",
+    "date-fns": "^4.1.0",
+    "highcharts": "^12.1.2",
+    "jwt-decode": "^4.0.0",
+    "leaflet": "^1.9.4",
+    "nodemailer": "^6.10.0",
+    "nuxt": "^3.15.4",
+    "nuxt-highcharts": "^3.1.1",
+    "pinia": "^3.0.1",
+    "pinia-plugin-persistedstate": "^4.1.2",
+    "v-calendar": "^3.1.2",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3",
+    "vuex": "^4.1.0",
+    "vuex-module-decorators": "^2.0.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.17.4",
+    "@nuxt/typescript-build": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@types/node": "^22.13.5",
+    "rimraf": "^6.0.1",
+    "sass": "^1.85.1",
+    "sass-loader": "^16.0.5",
+    "typescript": "^5.5.2"
+  }
+}
