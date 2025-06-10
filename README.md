@@ -1,11 +1,14 @@
 # Lodger Backend API
 
 ![GitHub Workflow Status](https://github.com/Nayzow/lodger-backend/actions/workflows/ci.yml/badge.svg)
+[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=Nayzow_lodger-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Nayzow_lodger-backend)
 ![Coverage](https://img.shields.io/badge/coverage-dynamic-lightgrey?style=flat)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Tech](https://img.shields.io/badge/.NET-9.0-blue)
 
 API REST développée en **.NET 9** pour la plateforme de **location longue durée Lodger**, permettant de gérer les utilisateurs, documents, paiements, rôles et configurations de manière sécurisée et évolutive.
+
+📊 [Voir le rapport de couverture](https://nayzow.github.io/lodger-backend/)
 
 ---
 
@@ -132,3 +135,4 @@ Le pipeline GitHub Actions comprend :
 - Docker
 - GitHub Actions
 - xUnit / Coverlet
+- 
