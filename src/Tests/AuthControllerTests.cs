@@ -159,7 +159,7 @@ public class AuthControllerTests
 
         var badRequest = Assert.IsType<BadRequestObjectResult>(result);
         Assert.NotNull(badRequest.Value);
-        Assert.Contains("au moins 8 caractères", badRequest.Value.ToString());
+        Assert.Contains("Le mot de passe doit comporter au moins 8 caractÃ¨res.", badRequest.Value.ToString());
     }
 
     [Fact]
