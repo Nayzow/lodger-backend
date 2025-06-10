@@ -59,14 +59,16 @@ jobs:
             --logger:"trx;LogFileName=test-results.trx" \
             --results-directory ${{ env.TEST_RESULTS_DIR }} \
             --collect:"XPlat Code Coverage"
-          
+
           cp ${{ env.TEST_RESULTS_DIR }}/*.trx ${{ env.TEST_ARTIFACTS_DIR }}/test-results.trx || true
           cp ${{ env.TEST_RESULTS_DIR }}/**/coverage.cobertura.xml ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml || true
-          
+
           trx2junit ${{ env.TEST_ARTIFACTS_DIR }}/test-results.trx --output ${{ env.TEST_ARTIFACTS_DIR }} || true
+
           reportgenerator -reports:${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml \
-            -targetdir:${{ env.TEST_ARTIFACTS_DIR }}/CoverageReport -reporttypes:HtmlSummary || true
-          
+            -targetdir:${{ env.TEST_ARTIFACTS_DIR }}/CoverageReport \
+            -reporttypes:"HtmlSummary;Cobertura;OpenCover" || true
+
           echo "=== Couverture ==="
           if [ -f ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml ]; then
             COVERAGE=$(grep -oP '(?<=<coverage line-rate=")[^"]+' ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml | head -n1)
@@ -79,6 +81,42 @@ jobs:
         with:
           name: test-artifacts
           path: ${{ env.TEST_ARTIFACTS_DIR }}
+
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    needs: build_and_test
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Download coverage artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: test-artifacts
+          path: src/Tests/Artifacts
+
+      - name: Run SonarCloud analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          dotnet sonarscanner begin /k:"Nayzow_lodger-backend" /o:"nayzow" \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
+            /d:sonar.host.url="https://sonarcloud.io" \
+            /d:sonar.cs.opencover.reportsPaths="src/Tests/Artifacts/CoverageReport/coverage.opencover.xml"
+
+          dotnet build src/App/LodgerBackend.csproj
+          dotnet test src/Tests/Tests.csproj --no-build
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
   deploy_pages:
     runs-on: ubuntu-latest
@@ -104,7 +142,7 @@ jobs:
           fi
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public/CoverageReport
