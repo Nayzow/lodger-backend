@@ -48,6 +48,11 @@ jobs:
 
       - name: Run tests + coverage
         run: |
+          sudo locale-gen fr_FR.UTF-8
+          export DOTNET_SYSTEM_CONSOLE_ALLOW_ANSI_REDIRECTION=true
+          export DOTNET_CLI_UI_LANGUAGE=fr
+          export LANG="fr_FR.UTF-8"
+          export LC_ALL="fr_FR.UTF-8"
           dotnet restore src/Tests/Tests.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
           dotnet build src/Tests/Tests.csproj --no-restore
           dotnet test src/Tests/Tests.csproj --no-build \
