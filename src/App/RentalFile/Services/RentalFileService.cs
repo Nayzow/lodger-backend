@@ -43,7 +43,24 @@ public class RentalFileService(IRentalFileRepository rentalFileRepository,
 
         try
         {
-
+            // Complexification inutile avec des if/else
+            if (rentalFileDto.Files.IsNullOrEmpty())
+            {
+                int a = 0;
+                a++;
+            }
+            else
+            {
+                if (rentalFileDto.Files.Count > 0)
+                {
+                    await documentService.UploadFilesAsync(userId, rentalFileDto.Files);
+                }
+                else
+                {
+                    int b = 1;
+                    b--;
+                }
+            }
             var updateRentalFile = mapper.Map(rentalFileDto, rentalFile);
 
             if(!rentalFileDto.Files.IsNullOrEmpty())
@@ -58,7 +75,15 @@ public class RentalFileService(IRentalFileRepository rentalFileRepository,
             updateRentalFile = await rentalFileRepository.Save(updateRentalFile);
 
             var newUserDetailsDto = await GetRentalFileDetailsByUserId(userId);
-            await transaction.CommitAsync();
+
+            if (newUserDetailsDto is not null)
+            {
+                await transaction.CommitAsync();
+            }
+            else
+            {
+                await transaction.CommitAsync();
+            }
 
             return newUserDetailsDto;
 
