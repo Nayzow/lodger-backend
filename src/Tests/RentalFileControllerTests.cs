@@ -30,7 +30,7 @@ public class RentalFileControllerTests
         var result = await controller.GetRentalFile();
 
         var unauthorized = Assert.IsType<UnauthorizedObjectResult>(result.Result);
-        Assert.Equal("Utilisateur non connectÈ", unauthorized.Value);
+        Assert.Equal("Utilisateur non connect√©", unauthorized.Value);
     }
 
     [Fact]
@@ -43,7 +43,7 @@ public class RentalFileControllerTests
         var result = await controller.GetRentalFile();
 
         var notFound = Assert.IsType<NotFoundObjectResult>(result.Result);
-        Assert.Equal("Aucun dossier de location trouvÈ pour l'utilisateur 10", notFound.Value);
+        Assert.Equal("Aucun dossier de location trouv√© pour l'utilisateur 10", notFound.Value);
     }
 
     [Fact]
@@ -56,7 +56,7 @@ public class RentalFileControllerTests
             MonthlyIncome = "2000",
             HasGuarantor = "oui",
             GuarantorIncome = "3000",
-            StatusFamilial = "CÈlibataire",
+            StatusFamilial = "C√©libataire",
             RoomatesNb = "0",
             HasAnimals = "non",
             Smoker = "non",
@@ -83,6 +83,13 @@ public class RentalFileControllerTests
         var error = Assert.IsType<ObjectResult>(result.Result);
         Assert.Equal(500, error.StatusCode);
         Assert.NotNull(error.Value);
-        Assert.Contains("Une erreur síest produite lors de la rÈcupÈration du dossier", error.Value.ToString());
+        Assert.Contains("Une erreur s'est produite lors de la r√©cup√©ration du dossier", error.Value.ToString());
+    }
+
+    // Test qui √©choue volairement
+    [Fact]
+    public void FailingTest()
+    {
+        Assert.True(false, "Ce test est cens√© √©chouer volontairement");
     }
 }

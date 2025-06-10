@@ -36,7 +36,7 @@ public class FileControllerTests
         var result = await controller.Upload(dto);
 
         var unauthorized = Assert.IsType<UnauthorizedObjectResult>(result);
-        Assert.Equal("Utilisateur non connecté.", unauthorized.Value);
+        Assert.Equal("Utilisateur non connectÃ©.", unauthorized.Value);
     }
 
     [Fact]
@@ -55,7 +55,7 @@ public class FileControllerTests
         var result = await controller.Upload(dto);
 
         var ok = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal("Fichier uploadé avec succès.", ok.Value);
+        Assert.Equal("Fichier uploadÃ© avec succÃ©s.", ok.Value);
     }
 
     [Fact]
@@ -87,7 +87,7 @@ public class FileControllerTests
         var result = await controller.Download("test.pdf");
 
         var unauthorized = Assert.IsType<UnauthorizedObjectResult>(result);
-        Assert.Equal("Utilisateur non connecté.", unauthorized.Value);
+        Assert.Equal("Utilisateur non connectÃ©.", unauthorized.Value);
     }
 
     [Fact]
@@ -127,6 +127,6 @@ public class FileControllerTests
 
         var error = Assert.IsType<ObjectResult>(result);
         Assert.Equal(500, error.StatusCode);
-        Assert.Equal("Une erreur est survenue lors du téléchargement.", error.Value);
+        Assert.Equal("Une erreur est survenue lors du tÃ©lÃ©chargement.", error.Value);
     }
 }

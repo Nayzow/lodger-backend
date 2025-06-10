@@ -28,7 +28,7 @@ public class DocumentControllerTests
         var result = await controller.GetDocuments();
 
         var unauthorized = Assert.IsType<UnauthorizedObjectResult>(result);
-        Assert.Equal("Utilisateur non connecté.", unauthorized.Value);
+        Assert.Equal("Utilisateur non connectÃ©.", unauthorized.Value);
     }
 
     [Fact]
@@ -59,6 +59,6 @@ public class DocumentControllerTests
 
         var errorResult = Assert.IsType<ObjectResult>(result);
         Assert.Equal(500, errorResult.StatusCode);
-        Assert.Equal("Une erreur est survenue lors de la récupération des documents.", errorResult.Value);
+        Assert.Equal("Une erreur est survenue lors de la rÃ©cupÃ©ration des documents.", errorResult.Value);
     }
 }

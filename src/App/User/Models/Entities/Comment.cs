@@ -18,7 +18,7 @@ public class Comment
 
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     #endregion
-    #region Cl� �trang�re
+    #region Clé étrangère
 
     [ForeignKey(nameof(User))]
     [Column("user_id")]

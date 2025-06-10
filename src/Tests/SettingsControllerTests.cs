@@ -27,7 +27,7 @@ public class SettingsControllerTests
         var result = await controller.GetSettings();
 
         var unauthorized = Assert.IsType<UnauthorizedObjectResult>(result);
-        Assert.Equal("Utilisateur non connecté.", unauthorized.Value);
+        Assert.Equal("Utilisateur non connectÃ©.", unauthorized.Value);
     }
 
     [Fact]
@@ -40,7 +40,7 @@ public class SettingsControllerTests
         var result = await controller.GetSettings();
 
         var notFound = Assert.IsType<NotFoundObjectResult>(result);
-        Assert.Equal("Paramètre non trouvés.", notFound.Value);
+        Assert.Equal("ParamÃ¨tre non trouvÃ©s.", notFound.Value);
     }
 
     [Fact]
@@ -76,6 +76,6 @@ public class SettingsControllerTests
 
         var error = Assert.IsType<ObjectResult>(result);
         Assert.Equal(500, error.StatusCode);
-        Assert.Equal("Une erreur est survenue lors de la récupération des paramètres.", error.Value);
+        Assert.Equal("Une erreur est survenue lors de la rÃ©cupÃ©ration des paramÃ¨tres.", error.Value);
     }
 }

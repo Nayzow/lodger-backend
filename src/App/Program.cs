@@ -63,7 +63,7 @@ builder.Services.AddAutoMapper(typeof(UserProfile));
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        // On laisse le comportement par d�faut = pas de $id
+        // On laisse le comportement par défaut = pas de $id
         options.JsonSerializerOptions.ReferenceHandler = null;
     });
 // ----- App -----

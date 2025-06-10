@@ -119,7 +119,7 @@ public class UserControllerTests
         });
 
         var unauthorized = Assert.IsType<UnauthorizedObjectResult>(result);
-        Assert.Equal("Utilisateur non authentifié.", unauthorized.Value);
+        Assert.Equal("Utilisateur non authentifiÃ©.", unauthorized.Value);
     }
 
     [Fact]
@@ -244,7 +244,7 @@ public class UserControllerTests
             MonthlyIncome = "2000",
             HasGuarantor = "oui",
             GuarantorIncome = "3000",
-            StatusFamilial = "Célibataire",
+            StatusFamilial = "CÃ©libataire",
             RoomatesNb = "0",
             HasAnimals = "non",
             Smoker = "non",
@@ -271,7 +271,7 @@ public class UserControllerTests
             MonthlyIncome = "2000",
             HasGuarantor = "oui",
             GuarantorIncome = "3000",
-            StatusFamilial = "Célibataire",
+            StatusFamilial = "CÃ©libataire",
             RoomatesNb = "0",
             HasAnimals = "non",
             Smoker = "non",
