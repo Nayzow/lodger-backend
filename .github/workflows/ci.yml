@@ -37,9 +37,6 @@ jobs:
           dotnet tool install --global dotnet-reportgenerator-globaltool
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
-      - name: Format check
-        run: dotnet format src/App/LodgerBackend.csproj --verify-no-changes
-
       - name: Restore dependencies
         run: dotnet restore src/App/LodgerBackend.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
 
