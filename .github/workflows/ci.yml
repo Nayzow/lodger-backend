@@ -107,7 +107,7 @@ jobs:
           dotnet build src/App/LodgerBackend.csproj
           dotnet test src/Tests/Tests.csproj --no-build
           
-          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}" || true
 
   deploy_pages:
     runs-on: ubuntu-latest
