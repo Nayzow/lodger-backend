@@ -7,8 +7,8 @@ using LodgerBackend.User.Repositories;
 namespace LodgerBackend.User.Services;
 
 public class UserService(
-    IUserRepository userRepository,
-    IAddressRepository addressRepository,
+    IUserRepository UserRepository, // Mauvaise règle de nommage
+    IAddressRepository _addressRepository,// Mauvaise règle de nommage
     ILogger<UserService> logger,
     LodgerDbContext lodgerDbContext,
     IMapper mapper) : IUserService
@@ -18,7 +18,7 @@ public class UserService(
         try
         {
             logger.LogInformation("Récupération des détails de l'utilisateur {UserId}", userId);
-            var user = await userRepository.GetUserWithDetailsAsync(userId);
+            var user = await UserRepository.GetUserWithDetailsAsync(userId);
             
             if (user == null)
                 logger.LogWarning("Aucun utilisateur trouvé avec l'ID {UserId}", userId);
@@ -41,7 +41,7 @@ public class UserService(
         try
         {
             logger.LogInformation("Recherche de l'utilisateur avec l'email {Email}", email);
-            var user = await userRepository.GetByEmail(email);
+            var user = await UserRepository.GetByEmail(email);
 
             if (user == null)
                 logger.LogWarning("Aucun utilisateur trouvé avec l'email {Email}", email);
@@ -62,7 +62,7 @@ public class UserService(
         try
         {
             logger.LogInformation("Récupération de l'utilisateur par ID {UserId}", userId);
-            var user = await userRepository.GetById(userId);
+            var user = await UserRepository.GetById(userId);
 
             if (user == null)
                 logger.LogWarning("Aucun utilisateur trouvé avec l'ID {UserId}", userId);
@@ -83,7 +83,7 @@ public class UserService(
         try
         {
             logger.LogInformation("Enregistrement d'un nouvel utilisateur avec l'email {Email}", newUser.Email);
-            await userRepository.Save(newUser);
+            await UserRepository.Save(newUser);
             logger.LogInformation("Utilisateur avec l'email {Email} enregistré avec succès", newUser.Email);
         }
         catch (Exception ex)
@@ -107,7 +107,7 @@ public class UserService(
             updateUser.AddressId = address?.Id;
             updateUser.Id = updateUser.Id;
 
-            updateUser = await userRepository.Save(updateUser);
+            updateUser = await UserRepository.Save(updateUser);
 
             newUserDetailsDto = await GetUserWithDetailsAsync(updateUser.Id);
 
@@ -130,7 +130,7 @@ public class UserService(
         Address? address = null;
         if (addressName is not null && postalCode is not null)
         {
-            address = await addressRepository.GetByAddress(addressName, postalCode) ?? await addressRepository.Save(new Address
+            address = await _addressRepository.GetByAddress(addressName, postalCode) ?? await _addressRepository.Save(new Address
             {
                 AddressName = addressName,
                 PostalCode = postalCode
@@ -140,7 +140,7 @@ public class UserService(
     }
     public async Task DeleteUserByIdAsync(int userId)
     {
-        await userRepository.DeleteUserWithDependenciesAsync(userId);
+        await UserRepository.DeleteUserWithDependenciesAsync(userId);
     }
 
 

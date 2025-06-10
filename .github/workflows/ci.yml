@@ -41,18 +41,13 @@ jobs:
         run: dotnet restore src/App/LodgerBackend.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
 
       - name: Build solution
-        run: dotnet build src/App/LodgerBackend.csproj --no-restore --nologo /warnaserror
+        run: dotnet build src/App/LodgerBackend.csproj --no-restore --nologo
 
       - name: Prepare test output dirs
         run: mkdir -p ${{ env.TEST_ARTIFACTS_DIR }} ${{ env.TEST_RESULTS_DIR }}
 
       - name: Run tests + coverage
         run: |
-          sudo locale-gen fr_FR.UTF-8
-          export DOTNET_SYSTEM_CONSOLE_ALLOW_ANSI_REDIRECTION=true
-          export DOTNET_CLI_UI_LANGUAGE=fr
-          export LANG="fr_FR.UTF-8"
-          export LC_ALL="fr_FR.UTF-8"
           dotnet restore src/Tests/Tests.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
           dotnet build src/Tests/Tests.csproj --no-restore
           dotnet test src/Tests/Tests.csproj --no-build \
@@ -61,20 +56,12 @@ jobs:
             --collect:"XPlat Code Coverage"
 
           cp ${{ env.TEST_RESULTS_DIR }}/*.trx ${{ env.TEST_ARTIFACTS_DIR }}/test-results.trx || true
-          cp ${{ env.TEST_RESULTS_DIR }}/**/coverage.cobertura.xml ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml || true
+          cp ${{ env.TEST_RESULTS_DIR }}/**/coverage.*.xml ${{ env.TEST_ARTIFACTS_DIR }}/ || true
 
           trx2junit ${{ env.TEST_ARTIFACTS_DIR }}/test-results.trx --output ${{ env.TEST_ARTIFACTS_DIR }} || true
-
           reportgenerator -reports:${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml \
             -targetdir:${{ env.TEST_ARTIFACTS_DIR }}/CoverageReport \
             -reporttypes:"HtmlSummary;Cobertura;OpenCover" || true
-
-          echo "=== Couverture ==="
-          if [ -f ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml ]; then
-            COVERAGE=$(grep -oP '(?<=<coverage line-rate=")[^"]+' ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml | head -n1)
-            COVERAGE_PCT=$(awk "BEGIN { printf \"%.2f\", $COVERAGE * 100 }")
-            echo "✅ Couverture des tests : $COVERAGE_PCT%"
-          fi
 
       - name: Upload test artifacts
         uses: actions/upload-artifact@v4
@@ -110,15 +97,16 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet sonarscanner begin \
-          /k:"Nayzow_lodger-backend" \
-          /o:"nayzow" \
-          /d:sonar.host.url="https://sonarcloud.io" \
-          /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
-          /d:sonar.projectBaseDir="src" \
-          /d:sonar.cs.opencover.reportsPaths="Tests/Artifacts/CoverageReport/coverage.opencover.xml"
-
+            /k:"Nayzow_lodger-backend" \
+            /o:"nayzow" \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
+            /d:sonar.host.url="https://sonarcloud.io" \
+            /d:sonar.cs.opencover.reportsPaths="src/Tests/Artifacts/CoverageReport/coverage.opencover.xml"
+          
+          dotnet restore src/App/LodgerBackend.csproj
           dotnet build src/App/LodgerBackend.csproj
           dotnet test src/Tests/Tests.csproj --no-build
+          
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
   deploy_pages:

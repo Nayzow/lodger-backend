@@ -5,6 +5,19 @@ namespace LodgerBackend.User.Repositories;
 
 public class UserRepository(LodgerDbContext dbContext) : IUserRepository
 {
+
+    /// <summary>
+    /// Vulnérable à l'injection SQL !
+    /// </summary>
+    /// <param name="email"></param>
+    /// <returns></returns>
+    public async Task<Models.Entities.User?> GetByEmail_Insecure(string email)
+    {
+        var sql = $"SELECT * FROM users WHERE email = '{email}'";
+        return await dbContext.Users
+            .FromSqlRaw(sql)
+            .FirstOrDefaultAsync();
+    }
     public async Task<Models.Entities.User?> GetUserWithDetailsAsync(int userId)
     {
         return await dbContext.Users
