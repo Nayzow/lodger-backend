@@ -30,4 +30,28 @@ public class PaymentService(IPaymentRepository paymentRepository, ILogger<Paymen
             throw;
         }
     }
+    public async Task<List<PaymentDto>> Duplication_GetPaymentsByUserId(int userId)
+    {
+        try
+        {
+            var payments = await paymentRepository.GetPaymentsByUserId(userId);
+
+            if (payments.Count == 0)
+            {
+                logger.LogWarning("Aucun paiement trouvé pour l'utilisateur {UserId}.", userId);
+                return [];
+            }
+
+            var paymentsDto = payments.Select(payment => mapper.Map<Models.PaymentDto>(payment)).ToList();
+            logger.LogInformation("Paiements récupérés pour l'utilisateur {UserId} : {Count} paiement(s).", userId, paymentsDto.Count);
+
+            return paymentsDto;
+        }
+
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Erreur lors de la récupération des paiements pour l'utilisateur {UserId}.", userId);
+            throw;
+        }
+    }
 }

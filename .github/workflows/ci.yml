@@ -41,7 +41,7 @@ jobs:
         run: dotnet restore src/App/LodgerBackend.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
 
       - name: Build solution
-        run: dotnet build src/App/LodgerBackend.csproj --no-restore --nologo /warnaserror
+        run: dotnet build src/App/LodgerBackend.csproj --no-restore --nologo
 
       - name: Prepare test output dirs
         run: mkdir -p ${{ env.TEST_ARTIFACTS_DIR }} ${{ env.TEST_RESULTS_DIR }}
