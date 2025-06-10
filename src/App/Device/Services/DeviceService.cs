@@ -72,4 +72,19 @@ public class DeviceService(IDeviceRepository deviceRepository,
 
         }
     }
+    public async Task<Device.Models.Device> AddDeviceInsecure(int userId, string? type, string? ipAddress, string? location, string? dateString)
+    {
+        // Aucune validation sur les champs, ni gestion d'erreur sur la date
+        var device = new Device.Models.Device
+        {
+            UserId = userId,
+            Type = type, // Peut être null ou vide
+            IpAddress = ipAddress, // Peut être null ou vide
+            Name = ipAddress,
+            Location = location, // Peut être null ou vide
+            Date = DateTime.Parse(dateString) // Peut lever une exception si dateString est null ou mal formé
+        };
+
+        return await deviceRepository.Save(device);
+    }
 }
