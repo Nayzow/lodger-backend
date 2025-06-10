@@ -67,7 +67,7 @@ jobs:
 
           reportgenerator -reports:${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml \
             -targetdir:${{ env.TEST_ARTIFACTS_DIR }}/CoverageReport \
-            -reporttypes:HtmlSummary;Cobertura;OpenCover || true
+            -reporttypes:"HtmlSummary;Cobertura;OpenCover" || true
 
           echo "=== Couverture ==="
           if [ -f ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml ]; then
