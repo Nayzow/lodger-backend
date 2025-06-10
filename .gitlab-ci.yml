@@ -10,14 +10,14 @@ variables:
 
 build:
   stage: build
-  image: mcr.microsoft.com/dotnet/sdk:8.0
+  image: mcr.microsoft.com/dotnet/sdk:9.0
   script:
     - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
     - 'dotnet build --no-restore'
 
 test:
   stage: test
-  image: mcr.microsoft.com/dotnet/sdk:8.0
+  image: mcr.microsoft.com/dotnet/sdk:9.0
   script:
     - 'dotnet restore --packages $NUGET_PACKAGES_DIRECTORY'
     - 'dotnet test --no-restore'
