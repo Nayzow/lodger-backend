@@ -8,6 +8,8 @@
 
 API REST développée en **.NET 9** pour la plateforme de **location longue durée Lodger**, permettant de gérer les utilisateurs, documents, paiements, rôles et configurations de manière sécurisée et évolutive.
 
+📊 [Voir le rapport de couverture](https://nayzow.github.io/lodger-backend/)
+
 ---
 
 ## 📁 Sommaire
@@ -21,8 +23,6 @@ API REST développée en **.NET 9** pour la plateforme de **location longue dur�
 - [Technologies](#technologies)
 - [Auteurs](#auteurs)
 - [Licence](#licence)
-
-📊 [Voir le rapport de couverture](https://nayzow.github.io/lodger-backend/)
 
 ---
 
