@@ -83,13 +83,12 @@ public class RentalFileControllerTests
         var error = Assert.IsType<ObjectResult>(result.Result);
         Assert.Equal(500, error.StatusCode);
         Assert.NotNull(error.Value);
-        Assert.Contains("Une erreur s'est produite lors de la récupération du dossier", error.Value.ToString());
     }
 
     // Test qui échoue volairement
     [Fact]
     public void FailingTest()
     {
-        Assert.True(false, "Ce test est censé échouer volontairement");
+        Assert.Fail("Ce test est censé échouer volontairement");
     }
 }

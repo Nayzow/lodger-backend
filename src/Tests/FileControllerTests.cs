@@ -55,7 +55,7 @@ public class FileControllerTests
         var result = await controller.Upload(dto);
 
         var ok = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal("Fichier uploadé avec succés.", ok.Value);
+        Assert.Equal("Fichier uploadé avec succès.", ok.Value);
     }
 
     [Fact]
