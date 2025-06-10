@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LodgerBackend.App.RentalFile.Enums;
+using LodgerBackend.RentalFile.Enums;
 
-namespace LodgerBackend.App.RentalFile.Models;
+namespace LodgerBackend.RentalFile.Models;
 
 [Table("rental_files")]
 public class RentalFile

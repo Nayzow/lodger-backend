@@ -1,6 +1,6 @@
 ﻿
 
-namespace LodgerBackend.App.Device.Services;
+namespace LodgerBackend.Device.Services;
 
 public interface IDeviceService
 {

@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.Configuration.Settings;
+﻿namespace LodgerBackend.Configuration.Settings;
 
 public class SmtpSettings
 {

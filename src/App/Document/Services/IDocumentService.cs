@@ -1,10 +1,9 @@
-﻿
-using LodgerBackend.App.Document.Enum;
-using LodgerBackend.App.Document.Models;
-using LodgerBackend.App.File.dtos;
+﻿using LodgerBackend.Document.Enum;
+using LodgerBackend.Document.Models;
+using LodgerBackend.File.dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.Document.Services;
+namespace LodgerBackend.Document.Services;
 
 public interface IDocumentService
 {

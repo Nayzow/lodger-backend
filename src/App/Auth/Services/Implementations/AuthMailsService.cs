@@ -1,9 +1,9 @@
-﻿using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.Configuration.Settings;
-using LodgerBackend.App.Mail;
+﻿using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.Configuration.Settings;
+using LodgerBackend.Mail;
 using Microsoft.Extensions.Options;
 
-namespace LodgerBackend.App.Auth.Services.Implementations;
+namespace LodgerBackend.Auth.Services.Implementations;
 
 public class AuthMailsService(IOptions<SmtpSettings> smtpSettings, IConfiguration configuration, ILogger<MailsService> logger) : MailsService(smtpSettings, logger), IAuthMailsService
 {

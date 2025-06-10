@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.Settings.Repositories;
+﻿namespace LodgerBackend.Setting.Repositories;
 
 public interface ISettingsRepository
 {

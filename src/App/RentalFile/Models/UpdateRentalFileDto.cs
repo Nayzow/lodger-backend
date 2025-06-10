@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using LodgerBackend.App.File.dtos;
+using LodgerBackend.File.dtos;
 
-namespace LodgerBackend.App.RentalFile
+namespace LodgerBackend.RentalFile.Models
 {
 
     public class UpdateRentalFileDto

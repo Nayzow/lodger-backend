@@ -1,11 +1,8 @@
-
-
-using LodgerBackend.App.Auth.Models.Entities;
-using LodgerBackend.App.RentalFile;
-using LodgerBackend.App.User.Models.Entities;
+using LodgerBackend.Auth.Models.Entities;
+using LodgerBackend.User.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.Configuration.DbContext;
+namespace LodgerBackend.Configuration.DbContext;
 
 public class LodgerDbContext(DbContextOptions<LodgerDbContext> options) : Microsoft.EntityFrameworkCore.DbContext(options)
 {
@@ -13,10 +10,10 @@ public class LodgerDbContext(DbContextOptions<LodgerDbContext> options) : Micros
     public DbSet<Comment> Comments { get; set; }
     public DbSet<User.Models.Entities.Address> Addresses { get; set; }
     public DbSet<Payment.Models.Payment> Payments { get; set; }
-    public DbSet<App.Settings.Models.Settings> Settings { get; set; }
+    public DbSet<Setting.Models.Settings> Settings { get; set; }
     public DbSet<Device.Models.Device> Devices { get; set; }
     public DbSet<RentalFile.Models.RentalFile> RentalFiles { get; set; }
-    public DbSet<global::LodgerBackend.App.Document.Models.Document> Documents { get; set; }
+    public DbSet<global::LodgerBackend.Document.Models.Document> Documents { get; set; }
 
 
     public DbSet<ResetPasswordRequest> ResetPasswordRequests => Set<ResetPasswordRequest>();

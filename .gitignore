@@ -1,5 +1,8 @@
-﻿# dev file
+﻿# Configuration & secrets de dev
 appsettings.Development.json
+src/**/appsettings.Development.json
+src/**/serilog.Development.json
+src/**/launchSettings.json
 
 *.suo
 *.user

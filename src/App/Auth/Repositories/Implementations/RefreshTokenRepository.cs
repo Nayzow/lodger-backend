@@ -1,9 +1,9 @@
-using LodgerBackend.App.Auth.Models.Entities;
-using LodgerBackend.App.Auth.Repositories.Interfaces;
-using LodgerBackend.App.Configuration.DbContext;
+using LodgerBackend.Auth.Models.Entities;
+using LodgerBackend.Auth.Repositories.Interfaces;
+using LodgerBackend.Configuration.DbContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.Auth.Repositories.Implementations;
+namespace LodgerBackend.Auth.Repositories.Implementations;
 
 public class RefreshTokenRepository(LodgerDbContext context) : IRefreshTokenRepository
 {

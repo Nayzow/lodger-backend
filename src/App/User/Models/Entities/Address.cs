@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LodgerBackend.App.User.Models.Entities
+namespace LodgerBackend.User.Models.Entities
 {
     [Table("addresses")]
     public class Address

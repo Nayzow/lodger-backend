@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LodgerBackend.src.App.Settings.Enums;
+using LodgerBackend.Setting.Enums;
 
-namespace LodgerBackend.App.Settings.Models;
+namespace LodgerBackend.Setting.Models;
 
 [Table("settings")]
 public class Settings

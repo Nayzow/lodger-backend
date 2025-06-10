@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace LodgerBackend.src.App.Settings.Dtos;
+namespace LodgerBackend.Setting.Dtos;
 
 public class UpdateSettingsDto
 {

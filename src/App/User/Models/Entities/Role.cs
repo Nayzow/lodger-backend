@@ -1,8 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LodgerBackend.App.User.Models.Dtos;
 
-namespace LodgerBackend.App.User.Models.Entities;
+namespace LodgerBackend.User.Models.Entities;
 
 [Table("roles")]
 public class Role

@@ -1,7 +1,7 @@
-﻿using LodgerBackend.App.Configuration.DbContext;
+﻿using LodgerBackend.Configuration.DbContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.Settings.Repositories;
+namespace LodgerBackend.Setting.Repositories;
 
 public class SettingsRepository(LodgerDbContext dbContext) : ISettingsRepository
 {

@@ -1,9 +1,9 @@
-﻿using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.Device.Services;
+﻿using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.Device.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LodgerBackend.App.Device;
+namespace LodgerBackend.Device;
 
 [ApiController]
 [Route("api/[controller]")]

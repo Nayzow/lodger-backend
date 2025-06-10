@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.OpenApi.Models;
 
-namespace LodgerBackend.App.Configuration;
+namespace LodgerBackend.Configuration;
 
 public static class SwaggerConfiguration
 {

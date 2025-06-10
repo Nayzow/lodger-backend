@@ -1,6 +1,4 @@
-﻿using LodgerBackend.App.RentalFile.Enums;
-
-namespace LodgerBackend.src.App.RentalFile.Enums
+﻿namespace LodgerBackend.RentalFile.Enums
 {
     public static class ERoomatesNumber
     {

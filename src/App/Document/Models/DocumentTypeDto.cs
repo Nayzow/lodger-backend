@@ -1,6 +1,6 @@
-﻿using LodgerBackend.App.Document.Enum;
+﻿using LodgerBackend.Document.Enum;
 
-namespace LodgerBackend.App.Document.Models;
+namespace LodgerBackend.Document.Models;
 
 public class DocumentTypeDto
 {

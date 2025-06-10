@@ -1,7 +1,7 @@
-using LodgerBackend.App.Auth.Models.Payloads;
-using LodgerBackend.App.User.Models.Dtos;
+using LodgerBackend.Auth.Models.Payloads;
+using LodgerBackend.User.Models.Dtos;
 
-namespace LodgerBackend.App.Auth.Services.Interfaces;
+namespace LodgerBackend.Auth.Services.Interfaces;
 
 public interface IPasswordResetService
 {

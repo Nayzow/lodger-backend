@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LodgerBackend.App.Payment.Models;
+namespace LodgerBackend.Payment.Models;
 
 [Table("payments")]
 public class Payment

@@ -1,4 +1,4 @@
-namespace LodgerBackend.App.User.Repositories;
+namespace LodgerBackend.User.Repositories;
 
 public interface IAddressRepository
 {

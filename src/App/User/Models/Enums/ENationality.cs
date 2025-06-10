@@ -1,7 +1,5 @@
 ﻿
-using System.Xml.Linq;
-
-namespace LodgerBackend.App.User.Models.Enums
+namespace LodgerBackend.User.Models.Enums
 {
     public enum ENationality
     {

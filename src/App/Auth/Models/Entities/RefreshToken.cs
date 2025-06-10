@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LodgerBackend.App.Auth.Models.Entities;
+namespace LodgerBackend.Auth.Models.Entities;
 
 [Table("refresh_tokens")]
 public class RefreshToken

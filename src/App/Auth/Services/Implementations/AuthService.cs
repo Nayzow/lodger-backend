@@ -1,13 +1,11 @@
-﻿using System.Net;
-using LodgerBackend.App.Auth.Models.Entities;
-using LodgerBackend.App.Auth.Models.Payloads;
-using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.Device.Models;
-using LodgerBackend.App.Device.Services;
-using LodgerBackend.App.RentalFile.Services;
-using LodgerBackend.App.User.Services;
+﻿using LodgerBackend.Auth.Models.Entities;
+using LodgerBackend.Auth.Models.Payloads;
+using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.Device.Services;
+using LodgerBackend.RentalFile.Services;
+using LodgerBackend.User.Services;
 
-namespace LodgerBackend.App.Auth.Services.Implementations;
+namespace LodgerBackend.Auth.Services.Implementations;
 
 public class AuthService(
     ITokenService tokenService,

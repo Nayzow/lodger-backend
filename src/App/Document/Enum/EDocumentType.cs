@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.Document.Enum
+﻿namespace LodgerBackend.Document.Enum
 {
     public enum EDocumentType
     {

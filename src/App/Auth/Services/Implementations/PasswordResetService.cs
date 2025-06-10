@@ -1,10 +1,10 @@
-﻿using LodgerBackend.App.Auth.Models.Payloads;
-using LodgerBackend.App.Auth.Repositories.Interfaces;
-using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Services;
+﻿using LodgerBackend.Auth.Models.Payloads;
+using LodgerBackend.Auth.Repositories.Interfaces;
+using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.User.Models.Dtos;
+using LodgerBackend.User.Services;
 
-namespace LodgerBackend.App.Auth.Services.Implementations;
+namespace LodgerBackend.Auth.Services.Implementations;
 
 public class PasswordResetService(
     IResetPasswordRequestRepository resetPasswordRequestRepository,

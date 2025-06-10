@@ -1,6 +1,6 @@
-﻿using LodgerBackend.App.Document.Enum;
+﻿using LodgerBackend.Document.Enum;
 
-namespace LodgerBackend.App.Document.Repositories;
+namespace LodgerBackend.Document.Repositories;
 
 public interface IDocumentRepository
 {

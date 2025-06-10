@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
-namespace LodgerBackend.App.Auth.Models.Payloads;
+
+namespace LodgerBackend.Auth.Models.Payloads;
 
 public class SignupRequest
 {

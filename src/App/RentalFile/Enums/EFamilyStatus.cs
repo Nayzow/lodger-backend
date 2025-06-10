@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.RentalFile.Enums
+﻿namespace LodgerBackend.RentalFile.Enums
 {
     public enum EFamilyStatus
     {

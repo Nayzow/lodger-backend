@@ -1,7 +1,7 @@
-﻿using LodgerBackend.App.Configuration.DbContext;
+﻿using LodgerBackend.Configuration.DbContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.RentalFile.Repositories;
+namespace LodgerBackend.RentalFile.Repositories;
 
 public class RentalFileRepository(LodgerDbContext dbContext) : IRentalFileRepository
 {

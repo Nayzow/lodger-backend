@@ -1,7 +1,7 @@
-﻿using LodgerBackend.App.Configuration.DbContext;
+﻿using LodgerBackend.Configuration.DbContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerBackend.App.Payment.Repositories;
+namespace LodgerBackend.Payment.Repositories;
 
 public class PaymentRepository(LodgerDbContext dbContext) : IPaymentRepository
 {

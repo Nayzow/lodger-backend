@@ -1,11 +1,7 @@
-using System.ComponentModel;
 using System.Text.Json.Serialization;
-using LodgerBackend.App.Document.Models;
-using LodgerBackend.App.User.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace LodgerBackend.App.User.Models.Dtos;
+namespace LodgerBackend.User.Models.Dtos;
 public class UserDetailsDto
 {
     [JsonPropertyName("nom")]

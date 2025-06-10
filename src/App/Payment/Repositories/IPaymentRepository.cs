@@ -1,4 +1,4 @@
-﻿namespace LodgerBackend.App.Payment.Repositories;
+﻿namespace LodgerBackend.Payment.Repositories;
 
 public interface IPaymentRepository
 {

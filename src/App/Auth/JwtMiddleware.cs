@@ -2,7 +2,7 @@
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace LodgerBackend.App.Auth;
+namespace LodgerBackend.Auth;
 
 public class JwtMiddleware(IConfiguration configuration, RequestDelegate next)
 {

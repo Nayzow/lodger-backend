@@ -1,7 +1,6 @@
-﻿using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Models.Entities;
+﻿using LodgerBackend.User.Models.Entities;
 
-namespace LodgerBackend.App.User.Services;
+namespace LodgerBackend.User.Services;
 
 public interface ICommentService
 {

@@ -1,6 +1,6 @@
-using LodgerBackend.App.User.Models.Entities;
+using LodgerBackend.User.Models.Entities;
 
-namespace LodgerBackend.App.User.Repositories;
+namespace LodgerBackend.User.Repositories;
 
 public interface ICommentRepository
 {

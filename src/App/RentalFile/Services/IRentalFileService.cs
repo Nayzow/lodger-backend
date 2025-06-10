@@ -1,6 +1,6 @@
-﻿using LodgerBackend.App.RentalFile.Models;
+﻿using LodgerBackend.RentalFile.Models;
 
-namespace LodgerBackend.App.RentalFile.Services;
+namespace LodgerBackend.RentalFile.Services;
 
 public interface IRentalFileService
 {

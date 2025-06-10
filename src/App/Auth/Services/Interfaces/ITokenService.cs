@@ -1,6 +1,6 @@
-using LodgerBackend.App.Auth.Models.Entities;
+using LodgerBackend.Auth.Models.Entities;
 
-namespace LodgerBackend.App.Auth.Services.Interfaces;
+namespace LodgerBackend.Auth.Services.Interfaces;
 
 public interface ITokenService
 {

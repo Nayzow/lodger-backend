@@ -1,0 +1,123 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop, release-do ]
+  pull_request:
+    branches: [ main, develop, release-do ]
+
+env:
+  DOTNET_VERSION: '9.0.x'
+  NUGET_PACKAGES_DIRECTORY: .nuget
+  TEST_ARTIFACTS_DIR: src/Tests/Artifacts
+  TEST_RESULTS_DIR: src/Tests/TestResults
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.NUGET_PACKAGES_DIRECTORY }}
+          key: nuget-${{ hashFiles('**/*.csproj') }}
+
+      - name: Install tools
+        run: |
+          dotnet tool install --global trx2junit
+          dotnet tool install --global dotnet-reportgenerator-globaltool
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+#      - name: Format check
+#        run: dotnet format src/App/LodgerBackend.csproj --verify-no-changes
+
+      - name: Restore dependencies
+        run: dotnet restore src/App/LodgerBackend.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
+
+      - name: Build solution
+        run: dotnet build src/App/LodgerBackend.csproj --no-restore --nologo /warnaserror
+
+      - name: Prepare test output dirs
+        run: mkdir -p ${{ env.TEST_ARTIFACTS_DIR }} ${{ env.TEST_RESULTS_DIR }}
+
+      - name: Run tests + coverage
+        run: |
+          dotnet restore src/Tests/Tests.csproj --packages ${{ env.NUGET_PACKAGES_DIRECTORY }}
+          dotnet build src/Tests/Tests.csproj --no-restore
+          dotnet test src/Tests/Tests.csproj --no-build \
+            --logger:"trx;LogFileName=test-results.trx" \
+            --results-directory ${{ env.TEST_RESULTS_DIR }} \
+            --collect:"XPlat Code Coverage"
+          
+          cp ${{ env.TEST_RESULTS_DIR }}/*.trx ${{ env.TEST_ARTIFACTS_DIR }}/test-results.trx || true
+          cp ${{ env.TEST_RESULTS_DIR }}/**/coverage.cobertura.xml ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml || true
+          
+          trx2junit ${{ env.TEST_ARTIFACTS_DIR }}/test-results.trx --output ${{ env.TEST_ARTIFACTS_DIR }} || true
+          reportgenerator -reports:${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml \
+            -targetdir:${{ env.TEST_ARTIFACTS_DIR }}/CoverageReport -reporttypes:HtmlSummary || true
+          
+          echo "=== Couverture ==="
+          if [ -f ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml ]; then
+            COVERAGE=$(grep -oP '(?<=<coverage line-rate=")[^"]+' ${{ env.TEST_ARTIFACTS_DIR }}/coverage.cobertura.xml | head -n1)
+            COVERAGE_PCT=$(awk "BEGIN { printf \"%.2f\", $COVERAGE * 100 }")
+            echo "✅ Couverture des tests : $COVERAGE_PCT%"
+          fi
+
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: ${{ env.TEST_ARTIFACTS_DIR }}
+
+#  docker_release:
+#    runs-on: ubuntu-latest
+#    needs: build_and_test
+#    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/release-do')
+#
+#    steps:
+#      - name: Checkout repo
+#        uses: actions/checkout@v4
+#
+#      - name: Setup Docker Buildx
+#        uses: docker/setup-buildx-action@v3
+#
+#      - name: Log in to DockerHub
+#        uses: docker/login-action@v3
+#        with:
+#          username: ${{ secrets.DOCKER_USERNAME }}
+#          password: ${{ secrets.DOCKER_PASSWORD }}
+#
+#      - name: Build and push Docker image
+#        run: |
+#          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/lodger-backend:${{ github.ref_name }} .
+#          docker push ${{ secrets.DOCKER_USERNAME }}/lodger-backend:${{ github.ref_name }}
+
+  deploy_pages:
+    runs-on: ubuntu-latest
+    needs: build_and_test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download coverage artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: test-artifacts
+          path: public
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public/CoverageReport

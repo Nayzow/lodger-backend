@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using LodgerBackend.App.Settings.Repositories;
-using LodgerBackend.src.App.Settings.Dtos;
-using LodgerBackend.src.App.Settings.Enums;
-using Org.BouncyCastle.Pqc.Crypto.Lms;
+using LodgerBackend.Setting.Dtos;
+using LodgerBackend.Setting.Enums;
+using LodgerBackend.Setting.Repositories;
 
-namespace LodgerBackend.App.Settings;
+namespace LodgerBackend.Setting;
 
 public class SettingsService(ISettingsRepository settingsRepository, ILogger<SettingsService> logger, IMapper mapper) : ISettingsService
 {

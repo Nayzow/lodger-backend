@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using LodgerBackend.App.Document.Models;
+using LodgerBackend.Document.Models;
 
-namespace LodgerBackend.App.RentalFile.Models
+namespace LodgerBackend.RentalFile.Models
 {
 
     public class RentalFileDto

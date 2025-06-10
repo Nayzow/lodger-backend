@@ -1,10 +1,10 @@
-﻿namespace LodgerBackend.src.App.User.PDF
-{
-    using LodgerBackend.App.User.Models.Dtos;
-    using QuestPDF.Fluent;
-    using QuestPDF.Helpers;
-    using QuestPDF.Infrastructure;
+﻿using LodgerBackend.User.Models.Dtos;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 
+namespace LodgerBackend.User.PDF
+{
     public class UserExportPdf : IDocument
     {
         private readonly UserDetailsDto user;

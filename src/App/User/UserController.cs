@@ -1,21 +1,20 @@
-using LodgerBackend.App.Auth.Services.Interfaces;
-using LodgerBackend.App.Device.Models;
-using LodgerBackend.App.Device.Services;
-using LodgerBackend.App.Document.Services;
-using LodgerBackend.App.File.Models;
-using LodgerBackend.App.RentalFile;
-using LodgerBackend.App.RentalFile.Models;
-using LodgerBackend.App.RentalFile.Services;
-using LodgerBackend.App.Settings;
-using LodgerBackend.App.User.Models.Dtos;
-using LodgerBackend.App.User.Services;
-using LodgerBackend.src.App.Settings.Dtos;
-using LodgerBackend.src.App.User.PDF;
+using LodgerBackend.Auth.Services.Interfaces;
+using LodgerBackend.Device.Models;
+using LodgerBackend.Device.Services;
+using LodgerBackend.Document.Services;
+using LodgerBackend.File.Models;
+using LodgerBackend.RentalFile.Models;
+using LodgerBackend.RentalFile.Services;
+using LodgerBackend.Setting;
+using LodgerBackend.Setting.Dtos;
+using LodgerBackend.User.Models.Dtos;
+using LodgerBackend.User.PDF;
+using LodgerBackend.User.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QuestPDF.Fluent;
 
-namespace LodgerBackend.App.User;
+namespace LodgerBackend.User;
 
 [ApiController]
 [Route("api/users/me")]
@@ -372,8 +371,6 @@ public class UserController(
         try
         {
             var user = await userService.GetUserWithDetailsAsync(userId.Value);
-            if (user == null)
-                return NotFound("Utilisateur introuvable.");
 
             var pdfStream = new MemoryStream();
             var document = new UserExportPdf(user);
@@ -382,7 +379,7 @@ public class UserController(
             pdfStream.Position = 0;
             return File(pdfStream, "application/pdf", "export-rgpd.pdf");
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             // Log ex si nécessaire
             return StatusCode(500, "Une erreur interne est survenue lors de la génération du PDF.");
@@ -440,11 +437,6 @@ public class UserController(
         try
         {
             var settingsDto = await settingsService.GetSettingsAsync(userId.Value);
-
-            if (settingsDto == null)
-            {
-                return NotFound("Aucun paramètre trouvé pour cet utilisateur.");
-            }
 
             return Ok(settingsDto);
         }

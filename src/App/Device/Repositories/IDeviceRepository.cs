@@ -1,6 +1,6 @@
 ﻿
 
-namespace LodgerBackend.App.Device.Repositories;
+namespace LodgerBackend.Device.Repositories;
 
 public interface IDeviceRepository
 {
