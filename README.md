@@ -1,91 +1,134 @@
-# 🏠 Lodger — Plateforme de location longue durée
+# Lodger Backend API
 
-![Build](https://github.com/Nayzow/lodger-backend/actions/workflows/ci.yml/badge.svg)
-![Coverage](https://img.shields.io/badge/coverage-auto--generated-green)
+![GitHub Workflow Status](https://github.com/Nayzow/lodger-backend/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://img.shields.io/badge/coverage-dynamic-lightgrey?style=flat)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Tech](https://img.shields.io/badge/.NET-9.0-blue)
 
-**Projet d’étude 4e année — Application web de gestion locative en ligne.**
-
----
-
-## 🚀 Objectif
-
-Lodger est une plateforme destinée à gérer de la location longue durée pour particuliers et professionnels. Elle permet l’inscription des utilisateurs, la gestion des documents contractuels (bail, quittance, etc.), le suivi des paiements, et la personnalisation des préférences (langue, thème...).
+API REST développée en **.NET 9** pour la plateforme de **location longue durée Lodger**, permettant de gérer les utilisateurs, documents, paiements, rôles et configurations de manière sécurisée et évolutive.
 
 ---
 
-## 🧱 Stack technique
+## 📁 Sommaire
 
-| Composant          | Technologie                      |
-|--------------------|----------------------------------|
-| Backend            | ASP.NET Core 9 (Web API)         |
-| Base de données    | PostgreSQL                       |
-| ORM                | Entity Framework Core            |
-| Authentification   | JWT + Refresh Token + Reset      |
-| Tests              | xUnit + Code Coverage (XPlat)    |
-| CI/CD              | GitHub Actions + Docker          |
-| Couverture         | ReportGenerator + GitHub Pages   |
-
----
-
-## 📦 Fonctionnalités
-
-- 🔐 Authentification sécurisée (email + refresh + 2FA)
-- 🧑‍💼 Gestion des utilisateurs et rôles
-- 📁 Upload de documents : bail, quittance, etc.
-- 💸 Paiements et suivi financier
-- ⚙️ Personnalisation : langue, thème, notifications
-- 🛠️ Administration et gestion multi-rôle (propriétaire, locataire)
+- [Fonctionnalités principales](#fonctionnalités-principales)
+- [Démarrage](#démarrage)
+- [Configuration locale](#configuration-locale)
+- [Structure du projet](#structure-du-projet)
+- [Tests & Couverture](#tests--couverture)
+- [CI/CD](#cicd)
+- [Technologies](#technologies)
+- [Auteurs](#auteurs)
+- [Licence](#licence)
 
 ---
 
-## 📡 Endpoints principaux (API REST)
+## 🎯 Fonctionnalités principales
 
-| Type | Méthode | Endpoint                        |
-|------|---------|---------------------------------|
-| 🔐 Auth | POST    | `/auth/login`                  |
-| 🔐 Auth | POST    | `/auth/register`               |
-| 🔁 Token | POST    | `/auth/refresh`                |
-| 🔒 Reset | POST    | `/auth/reset-password`         |
-| 👤 User | GET     | `/users/{id}`                  |
-| 👤 User | PUT     | `/users/{id}`                  |
-| 🗑️ User | DELETE  | `/users/{id}`                  |
-| 📄 Docs | GET     | `/documents`                   |
-| 📄 Docs | POST    | `/documents`                   |
-| 📄 Docs | DELETE  | `/documents/{id}`              |
-| 💰 Paiements | GET | `/payments`                   |
-| 💰 Paiements | POST| `/payments`                   |
-| ⚙️ Settings | GET  | `/settings`                   |
-| ⚙️ Settings | PUT  | `/settings`                   |
-
-📎 Documentation Swagger dispo sur : `http://localhost:5000/swagger`
+- Authentification avec jeton JWT
+- Création et gestion de comptes utilisateurs avec rôles
+- Paiements liés aux utilisateurs
+- Upload et gestion de documents
+- Configuration personnalisée utilisateur
+- Réinitialisation de mot de passe
+- Swagger UI disponible en environnement `Development`
 
 ---
 
-## 🧪 Tests & couverture
+## 🚀 Démarrage
+
+### ▶️ Exécution manuelle
 
 ```bash
-dotnet test src/Tests/Tests.csproj
+dotnet build src/App/LodgerBackend.csproj
+dotnet run --project src/App/LodgerBackend.csproj
 ```
 
-Rapport HTML auto-généré et publié via GitHub Pages :
-👉 https://nayzow.github.io/lodger-backend/
+Swagger est accessible ici : [http://localhost:5000/swagger](http://localhost:5000/swagger)
 
----
-
-## 🐳 Docker
+### 🐳 Exécution via Docker
 
 ```bash
-docker-compose up -d
+docker build -t lodger-backend .
+docker run -p 5000:5000 lodger-backend
 ```
-
-- API REST : http://localhost:5000
-- Swagger : http://localhost:5000/swagger
 
 ---
 
-## 🔁 CI/CD GitHub Actions
+## 🛠️ Configuration locale
 
-- ✅ Build, tests, format check à chaque push
-- 📦 Artifacts test & couverture collectés
-- 🧪 Rapport HTML publié sur GitHub Pages
-- 🐳 (Optionnel) Image Docker déployable via secrets
+Avant tout démarrage local, assure-toi d’avoir :
+
+- `src/App/appsettings.Development.json`
+- `src/App/serilog.Development.json`
+- `src/App/Properties/launchSettings.json`
+
+### Exemple de `launchSettings.json`
+
+```json
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+```
+
+---
+
+## 📂 Structure du projet
+
+```
+lodger-backend/
+├── .github/workflows/       # CI GitHub Actions
+├── src/
+│   ├── App/                 # API principale
+│   └── Tests/               # Projet de tests xUnit
+├── README.md
+└── Dockerfile
+```
+
+---
+
+## 🧪 Tests & Couverture
+
+Les tests sont basés sur xUnit + Coverlet. Exécution manuelle :
+
+```bash
+dotnet test src/Tests/Tests.csproj --collect:"XPlat Code Coverage"
+```
+
+Le rapport de couverture est généré en `src/Tests/Artifacts/CoverageReport`.
+
+Un aperçu est publié sur GitHub Pages après chaque push sur `main`.
+
+---
+
+## ⚙️ CI/CD
+
+Le pipeline GitHub Actions comprend :
+
+- Restauration des dépendances
+- Build du projet
+- Exécution des tests avec couverture
+- Génération de rapports `.trx`, `JUnit`, `Cobertura`, `HTML`
+- Déploiement automatique sur GitHub Pages (`CoverageReport`)
+
+---
+
+## 🧰 Technologies
+
+- [.NET 9](https://dotnet.microsoft.com/en-us/download)
+- PostgreSQL
+- Entity Framework Core
+- Swagger / OpenAPI
+- Docker
+- GitHub Actions
+- xUnit / Coverlet
