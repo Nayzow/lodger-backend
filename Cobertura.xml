@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.08067757680160781" branch-rate="0.0881057268722467" lines-covered="281" lines-valid="3483" branches-covered="60" branches-valid="681" complexity="956" version="0" timestamp="1749569253">
+<coverage line-rate="0.07922187764307866" branch-rate="0.08708272859216255" lines-covered="281" lines-valid="3547" branches-covered="60" branches-valid="689" complexity="969" version="0" timestamp="1749581415">
   <sources>
     <source>/home/runner/work/lodger-backend/lodger-backend/src/App/</source>
   </sources>
   <packages>
-    <package name="LodgerBackend" line-rate="0.08067757680160781" branch-rate="0.0881057268722467" complexity="956">
+    <package name="LodgerBackend" line-rate="0.07922187764307866" branch-rate="0.08708272859216255" complexity="969">
       <classes>
         <class name="LodgerBackend.Auth.AuthController" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Auth/AuthController.cs" line-rate="1" branch-rate="1" complexity="21">
           <methods>
@@ -2203,13 +2203,29 @@
             <line number="43" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="LodgerBackend.Device.Services.DeviceService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Device/Services/DeviceService.cs" line-rate="0" branch-rate="0" complexity="15">
+        <class name="LodgerBackend.Device.Services.DeviceService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Device/Services/DeviceService.cs" line-rate="0" branch-rate="0" complexity="16">
           <methods>
             <method name=".ctor" signature="(LodgerBackend.Device.Repositories.IDeviceRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor,AutoMapper.IMapper)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="8" hits="0" branch="false" />
                 <line number="9" hits="0" branch="false" />
                 <line number="10" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="AddDeviceInsecure" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="76" hits="0" branch="false" />
+                <line number="78" hits="0" branch="false" />
+                <line number="79" hits="0" branch="false" />
+                <line number="80" hits="0" branch="false" />
+                <line number="81" hits="0" branch="false" />
+                <line number="82" hits="0" branch="false" />
+                <line number="83" hits="0" branch="false" />
+                <line number="84" hits="0" branch="false" />
+                <line number="85" hits="0" branch="false" />
+                <line number="86" hits="0" branch="false" />
+                <line number="88" hits="0" branch="false" />
+                <line number="89" hits="0" branch="false" />
               </lines>
             </method>
             <method name="DeleteDeviceId" signature="()" line-rate="0" branch-rate="0" complexity="2">
@@ -2317,6 +2333,18 @@
             <line number="69" hits="0" branch="false" />
             <line number="71" hits="0" branch="false" />
             <line number="74" hits="0" branch="false" />
+            <line number="76" hits="0" branch="false" />
+            <line number="78" hits="0" branch="false" />
+            <line number="79" hits="0" branch="false" />
+            <line number="80" hits="0" branch="false" />
+            <line number="81" hits="0" branch="false" />
+            <line number="82" hits="0" branch="false" />
+            <line number="83" hits="0" branch="false" />
+            <line number="84" hits="0" branch="false" />
+            <line number="85" hits="0" branch="false" />
+            <line number="86" hits="0" branch="false" />
+            <line number="88" hits="0" branch="false" />
+            <line number="89" hits="0" branch="false" />
           </lines>
         </class>
         <class name="LodgerBackend.Document.DocumentController" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Document/DocumentController.cs" line-rate="1" branch-rate="1" complexity="3">
@@ -6103,11 +6131,30 @@
             <line number="13" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="LodgerBackend.Payment.Services.PaymentService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Payment/Services/PaymentService.cs" line-rate="0" branch-rate="0" complexity="3">
+        <class name="LodgerBackend.Payment.Services.PaymentService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Payment/Services/PaymentService.cs" line-rate="0" branch-rate="0" complexity="5">
           <methods>
             <method name=".ctor" signature="(LodgerBackend.Payment.Repositories.IPaymentRepository,Microsoft.Extensions.Logging.ILogger`1&lt;LodgerBackend.Payment.Services.PaymentService&gt;,AutoMapper.IMapper)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="7" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="Duplication_GetPaymentsByUserId" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="34" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="39" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="40" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+                <line number="42" hits="0" branch="false" />
+                <line number="45" hits="0" branch="false" />
+                <line number="46" hits="0" branch="false" />
+                <line number="48" hits="0" branch="false" />
+                <line number="51" hits="0" branch="false" />
+                <line number="52" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
+                <line number="54" hits="0" branch="false" />
+                <line number="56" hits="0" branch="false" />
               </lines>
             </method>
             <method name="GetPaymentsByUserId" signature="()" line-rate="0" branch-rate="0" complexity="2">
@@ -6147,6 +6194,21 @@
             <line number="29" hits="0" branch="false" />
             <line number="30" hits="0" branch="false" />
             <line number="32" hits="0" branch="false" />
+            <line number="34" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="39" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="40" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="48" hits="0" branch="false" />
+            <line number="51" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="54" hits="0" branch="false" />
+            <line number="56" hits="0" branch="false" />
           </lines>
         </class>
         <class name="LodgerBackend.RentalFile.Enums.FamilyStatusExtensions" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/RentalFile/Enums/EFamilyStatus.cs" line-rate="0" branch-rate="0" complexity="49">
@@ -6715,7 +6777,7 @@
             <line number="28" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="LodgerBackend.RentalFile.Services.RentalFileService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/RentalFile/Services/RentalFileService.cs" line-rate="0" branch-rate="0" complexity="14">
+        <class name="LodgerBackend.RentalFile.Services.RentalFileService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/RentalFile/Services/RentalFileService.cs" line-rate="0" branch-rate="0" complexity="20">
           <methods>
             <method name=".ctor" signature="(LodgerBackend.RentalFile.Repositories.IRentalFileRepository,LodgerBackend.Document.Services.IDocumentService,LodgerBackend.User.Services.ICommentService,LodgerBackend.Configuration.DbContext.LodgerDbContext,Microsoft.Extensions.Logging.ILogger`1&lt;LodgerBackend.RentalFile.Services.RentalFileService&gt;,AutoMapper.IMapper)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -6752,13 +6814,14 @@
                 <line number="38" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="UpdateRentalFileAsync" signature="()" line-rate="0" branch-rate="0" complexity="10">
+            <method name="UpdateRentalFileAsync" signature="()" line-rate="0" branch-rate="0" complexity="16">
               <lines>
                 <line number="41" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="42" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="45" hits="0" branch="false" />
-                <line number="47" hits="0" branch="false" />
-                <line number="49" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="47" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="48" hits="0" branch="false" />
+                <line number="49" hits="0" branch="false" />
                 <line number="50" hits="0" branch="false" />
                 <line number="51" hits="0" branch="false" />
                 <line number="53" hits="0" branch="false" />
@@ -6766,19 +6829,39 @@
                 <line number="55" hits="0" branch="false" />
                 <line number="56" hits="0" branch="false" />
                 <line number="57" hits="0" branch="false" />
-                <line number="58" hits="0" branch="false" />
+                <line number="59" hits="0" branch="false" />
                 <line number="60" hits="0" branch="false" />
                 <line number="61" hits="0" branch="false" />
+                <line number="62" hits="0" branch="false" />
                 <line number="63" hits="0" branch="false" />
+                <line number="64" hits="0" branch="false" />
+                <line number="66" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="67" hits="0" branch="false" />
                 <line number="68" hits="0" branch="false" />
-                <line number="69" hits="0" branch="false" />
-                <line number="70" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="71" hits="0" branch="false" />
+                <line number="70" hits="0" branch="false" />
+                <line number="71" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="72" hits="0" branch="false" />
                 <line number="73" hits="0" branch="false" />
                 <line number="74" hits="0" branch="false" />
-                <line number="76" hits="0" branch="false" />
+                <line number="75" hits="0" branch="false" />
+                <line number="77" hits="0" branch="false" />
+                <line number="79" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="80" hits="0" branch="false" />
+                <line number="81" hits="0" branch="false" />
+                <line number="82" hits="0" branch="false" />
+                <line number="84" hits="0" branch="false" />
+                <line number="85" hits="0" branch="false" />
+                <line number="86" hits="0" branch="false" />
+                <line number="88" hits="0" branch="false" />
+                <line number="92" hits="0" branch="false" />
+                <line number="93" hits="0" branch="false" />
+                <line number="94" hits="0" branch="false" />
+                <line number="95" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="96" hits="0" branch="false" />
+                <line number="97" hits="0" branch="false" />
+                <line number="98" hits="0" branch="false" />
+                <line number="99" hits="0" branch="false" />
+                <line number="101" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -6805,8 +6888,9 @@
             <line number="41" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="42" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="45" hits="0" branch="false" />
-            <line number="47" hits="0" branch="false" />
-            <line number="49" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="47" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="48" hits="0" branch="false" />
+            <line number="49" hits="0" branch="false" />
             <line number="50" hits="0" branch="false" />
             <line number="51" hits="0" branch="false" />
             <line number="53" hits="0" branch="false" />
@@ -6814,19 +6898,39 @@
             <line number="55" hits="0" branch="false" />
             <line number="56" hits="0" branch="false" />
             <line number="57" hits="0" branch="false" />
-            <line number="58" hits="0" branch="false" />
+            <line number="59" hits="0" branch="false" />
             <line number="60" hits="0" branch="false" />
             <line number="61" hits="0" branch="false" />
+            <line number="62" hits="0" branch="false" />
             <line number="63" hits="0" branch="false" />
+            <line number="64" hits="0" branch="false" />
+            <line number="66" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="67" hits="0" branch="false" />
             <line number="68" hits="0" branch="false" />
-            <line number="69" hits="0" branch="false" />
-            <line number="70" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="71" hits="0" branch="false" />
+            <line number="70" hits="0" branch="false" />
+            <line number="71" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="72" hits="0" branch="false" />
             <line number="73" hits="0" branch="false" />
             <line number="74" hits="0" branch="false" />
-            <line number="76" hits="0" branch="false" />
+            <line number="75" hits="0" branch="false" />
+            <line number="77" hits="0" branch="false" />
+            <line number="79" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="80" hits="0" branch="false" />
+            <line number="81" hits="0" branch="false" />
+            <line number="82" hits="0" branch="false" />
+            <line number="84" hits="0" branch="false" />
+            <line number="85" hits="0" branch="false" />
+            <line number="86" hits="0" branch="false" />
+            <line number="88" hits="0" branch="false" />
+            <line number="92" hits="0" branch="false" />
+            <line number="93" hits="0" branch="false" />
+            <line number="94" hits="0" branch="false" />
+            <line number="95" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="96" hits="0" branch="false" />
+            <line number="97" hits="0" branch="false" />
+            <line number="98" hits="0" branch="false" />
+            <line number="99" hits="0" branch="false" />
+            <line number="101" hits="0" branch="false" />
           </lines>
         </class>
         <class name="LodgerBackend.Setting.Dtos.SettingsDto" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Setting/Dtos/SettingsDto.cs" line-rate="1" branch-rate="1" complexity="6">
@@ -8021,7 +8125,7 @@
             <line number="36" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="LodgerBackend.User.Repositories.UserRepository" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/User/Repositories/UserRepository.cs" line-rate="0" branch-rate="0" complexity="12">
+        <class name="LodgerBackend.User.Repositories.UserRepository" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/User/Repositories/UserRepository.cs" line-rate="0" branch-rate="0" complexity="13">
           <methods>
             <method name=".ctor" signature="(LodgerBackend.Configuration.DbContext.LodgerDbContext)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -8030,30 +8134,40 @@
             </method>
             <method name="DeleteUserWithDependenciesAsync" signature="()" line-rate="0" branch-rate="0" complexity="6">
               <lines>
-                <line number="42" hits="0" branch="false" />
-                <line number="43" hits="0" branch="false" />
-                <line number="44" hits="0" branch="false" />
-                <line number="45" hits="0" branch="false" />
-                <line number="46" hits="0" branch="false" />
-                <line number="47" hits="0" branch="false" />
-                <line number="48" hits="0" branch="false" />
-                <line number="49" hits="0" branch="false" />
-                <line number="50" hits="0" branch="false" />
-                <line number="52" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="53" hits="0" branch="false" />
                 <line number="55" hits="0" branch="false" />
                 <line number="56" hits="0" branch="false" />
                 <line number="57" hits="0" branch="false" />
                 <line number="58" hits="0" branch="false" />
-                <line number="59" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="60" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="59" hits="0" branch="false" />
+                <line number="60" hits="0" branch="false" />
+                <line number="61" hits="0" branch="false" />
+                <line number="62" hits="0" branch="false" />
                 <line number="63" hits="0" branch="false" />
-                <line number="65" hits="0" branch="false" />
+                <line number="65" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="66" hits="0" branch="false" />
+                <line number="68" hits="0" branch="false" />
+                <line number="69" hits="0" branch="false" />
+                <line number="70" hits="0" branch="false" />
+                <line number="71" hits="0" branch="false" />
+                <line number="72" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="73" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="76" hits="0" branch="false" />
+                <line number="78" hits="0" branch="false" />
+                <line number="79" hits="0" branch="false" />
               </lines>
             </method>
             <method name="GetByEmail" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
+                <line number="31" hits="0" branch="false" />
+                <line number="32" hits="0" branch="false" />
+                <line number="33" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetByEmail_Insecure" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="0" branch="false" />
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
                 <line number="18" hits="0" branch="false" />
                 <line number="19" hits="0" branch="false" />
                 <line number="20" hits="0" branch="false" />
@@ -8061,84 +8175,90 @@
             </method>
             <method name="GetById" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="23" hits="0" branch="false" />
-                <line number="24" hits="0" branch="false" />
-                <line number="25" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="38" hits="0" branch="false" />
               </lines>
             </method>
             <method name="GetUserWithDetailsAsync" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="9" hits="0" branch="false" />
-                <line number="10" hits="0" branch="false" />
-                <line number="11" hits="0" branch="false" />
-                <line number="12" hits="0" branch="false" />
-                <line number="13" hits="0" branch="false" />
-                <line number="14" hits="0" branch="false" />
-                <line number="15" hits="0" branch="false" />
+                <line number="22" hits="0" branch="false" />
+                <line number="23" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
+                <line number="28" hits="0" branch="false" />
               </lines>
             </method>
             <method name="Save" signature="()" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="28" hits="0" branch="false" />
-                <line number="29" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="30" hits="0" branch="false" />
-                <line number="31" hits="0" branch="false" />
-                <line number="32" hits="0" branch="false" />
-                <line number="34" hits="0" branch="false" />
-                <line number="35" hits="0" branch="false" />
-                <line number="36" hits="0" branch="false" />
-                <line number="38" hits="0" branch="false" />
-                <line number="39" hits="0" branch="false" />
-                <line number="40" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+                <line number="42" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="43" hits="0" branch="false" />
+                <line number="44" hits="0" branch="false" />
+                <line number="45" hits="0" branch="false" />
+                <line number="47" hits="0" branch="false" />
+                <line number="48" hits="0" branch="false" />
+                <line number="49" hits="0" branch="false" />
+                <line number="51" hits="0" branch="false" />
+                <line number="52" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
           <lines>
             <line number="6" hits="0" branch="false" />
-            <line number="9" hits="0" branch="false" />
-            <line number="10" hits="0" branch="false" />
-            <line number="11" hits="0" branch="false" />
-            <line number="12" hits="0" branch="false" />
-            <line number="13" hits="0" branch="false" />
-            <line number="14" hits="0" branch="false" />
             <line number="15" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
             <line number="18" hits="0" branch="false" />
             <line number="19" hits="0" branch="false" />
             <line number="20" hits="0" branch="false" />
+            <line number="22" hits="0" branch="false" />
             <line number="23" hits="0" branch="false" />
             <line number="24" hits="0" branch="false" />
             <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="27" hits="0" branch="false" />
             <line number="28" hits="0" branch="false" />
-            <line number="29" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="30" hits="0" branch="false" />
             <line number="31" hits="0" branch="false" />
             <line number="32" hits="0" branch="false" />
-            <line number="34" hits="0" branch="false" />
-            <line number="35" hits="0" branch="false" />
+            <line number="33" hits="0" branch="false" />
             <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
             <line number="38" hits="0" branch="false" />
-            <line number="39" hits="0" branch="false" />
-            <line number="40" hits="0" branch="false" />
-            <line number="42" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="42" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="43" hits="0" branch="false" />
             <line number="44" hits="0" branch="false" />
             <line number="45" hits="0" branch="false" />
-            <line number="46" hits="0" branch="false" />
             <line number="47" hits="0" branch="false" />
             <line number="48" hits="0" branch="false" />
             <line number="49" hits="0" branch="false" />
-            <line number="50" hits="0" branch="false" />
-            <line number="52" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="51" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
             <line number="53" hits="0" branch="false" />
             <line number="55" hits="0" branch="false" />
             <line number="56" hits="0" branch="false" />
             <line number="57" hits="0" branch="false" />
             <line number="58" hits="0" branch="false" />
-            <line number="59" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="60" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="59" hits="0" branch="false" />
+            <line number="60" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="62" hits="0" branch="false" />
             <line number="63" hits="0" branch="false" />
-            <line number="65" hits="0" branch="false" />
+            <line number="65" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="66" hits="0" branch="false" />
+            <line number="68" hits="0" branch="false" />
+            <line number="69" hits="0" branch="false" />
+            <line number="70" hits="0" branch="false" />
+            <line number="71" hits="0" branch="false" />
+            <line number="72" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="73" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="76" hits="0" branch="false" />
+            <line number="78" hits="0" branch="false" />
+            <line number="79" hits="0" branch="false" />
           </lines>
         </class>
         <class name="LodgerBackend.User.Services.CommentService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/User/Services/CommentService.cs" line-rate="1" branch-rate="1" complexity="2">
@@ -8955,6 +9075,44 @@
             <line number="107" hits="0" branch="false" />
             <line number="108" hits="0" branch="false" />
             <line number="109" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="SessionService" filename="/home/runner/work/lodger-backend/lodger-backend/src/App/Session/SessionService.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="SetUserSession" signature="(System.Int32)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="false" />
+                <line number="13" hits="0" branch="false" />
+                <line number="14" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetUserSession" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+                <line number="20" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(Microsoft.AspNetCore.Http.IHttpContextAccessor)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="false" />
+                <line number="6" hits="0" branch="false" />
+                <line number="7" hits="0" branch="false" />
+                <line number="8" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="false" />
+            <line number="6" hits="0" branch="false" />
+            <line number="7" hits="0" branch="false" />
+            <line number="8" hits="0" branch="false" />
+            <line number="11" hits="0" branch="false" />
+            <line number="13" hits="0" branch="false" />
+            <line number="14" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="20" hits="0" branch="false" />
           </lines>
         </class>
       </classes>
