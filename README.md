@@ -135,3 +135,4 @@ Le pipeline GitHub Actions comprend :
 - Docker
 - GitHub Actions
 - xUnit / Coverlet
+- 
