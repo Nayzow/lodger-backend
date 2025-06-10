@@ -1,0 +1,10 @@
+﻿.idea/
+.git/
+src/Tests/
+resources/
+logs/
+Properties/
+wwwroot/
+.gitlab-ci.yml
+README.md
+appsettings.Development.json

@@ -1,0 +1,18 @@
+﻿# dev file
+appsettings.Development.json
+
+*.suo
+*.user
+.vs/
+.idea/
+Properties/
+[Bb]in/
+[Oo]bj/
+_UpgradeReport_Files/
+[Pp]ackages/
+out/
+logs/
+
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:17.4
+    restart: always
+    networks:
+      - lodger-network
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: lodger
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+#  api:
+#    build : .
+#    restart: always
+#    depends_on:
+#      - database
+#    networks:
+#      - lodger-network
+#    ports:
+#      - "8080:8080"
+
+#  app:
+#    image: registry.gitlab.com/thibo.tanguy/lodger-frontend:main
+#    restart: always
+#    depends_on:
+#      - api
+#    networks:
+#      - lodger-network
+#    ports:
+#      - "8888:80" 
+
+  storage:
+    image: minio/minio
+    container_name: minio
+    command: server /data --console-address ":9001"
+    depends_on:
+      - database
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+    ports:
+      - "9000:9000"  # API S3
+      - "9001:9001"  # Console Web
+    volumes:
+      - lodger-storage:/data
+    networks:
+      - lodger-network
+
+volumes:
+  lodger-storage:
+  db-data:
+
+networks:
+  lodger-network:
+    driver: bridge
