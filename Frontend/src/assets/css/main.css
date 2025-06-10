@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Ninetea";
+    src: url('../fonts/Ninetea-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: "Jakarta";
+    src: url('../fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: "Albert";
+    src: url('../fonts/AlbertSans-VariableFont_wght.ttf') format('truetype');
+  }
+
+  html {
+    @apply font-albert;
+  }
+
+  body {
+    @apply bg-slate-50;
+  }
+
+  h1, h2, h3 {
+    @apply text-lg md:text-xl lg:text-2xl font-bold font-ninetea leading-none tracking-wide text-secondaire;
+  }
+
+  p {
+    @apply text-base lg:text-lg font-jakarta leading-relaxed;
+  }
+}
+
