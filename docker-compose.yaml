@@ -16,7 +16,9 @@ services:
       - db-data:/var/lib/postgresql/data
 
 #  api:
-#    build : .
+#    build:
+#      context: ./docker/api
+#      dockerfile: Dockerfile
 #    restart: always
 #    depends_on:
 #      - database
@@ -25,15 +27,38 @@ services:
 #    ports:
 #      - "8080:8080"
 
-#  app:
-#    image: registry.gitlab.com/thibo.tanguy/lodger-frontend:main
-#    restart: always
-#    depends_on:
-#      - api
-#    networks:
-#      - lodger-network
-#    ports:
-#      - "8888:80" 
+
+  jenkins:
+    build:
+      context: ./docker/jenkins
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8081:8080"  # Jenkins UI accessible sur 8081 côté host
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - lodger-network
+    depends_on:
+      - sonarqube
+
+  sonarqube:
+    image: sonarqube:lts
+    restart: always
+    ports:
+      - "9000:9000"  # Port sonar
+    networks:
+      - lodger-network
+    environment:
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+      SONARQUBE_JDBC_USERNAME: root
+      SONARQUBE_JDBC_PASSWORD: test
+      SONARQUBE_JDBC_URL: jdbc:postgresql://database:5432/lodger
+      sonar.core.serverBaseURL: "http://localhost:9000"
+    volumes:
+      - sonar_data:/opt/sonarqube/data
+      - sonar_extensions:/opt/sonarqube/extensions
 
   storage:
     image: minio/minio
@@ -45,8 +70,8 @@ services:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: password
     ports:
-      - "9000:9000"  # API S3
-      - "9001:9001"  # Console Web
+      - "9002:9000"
+      - "9001:9001"
     volumes:
       - lodger-storage:/data
     networks:
@@ -55,6 +80,9 @@ services:
 volumes:
   lodger-storage:
   db-data:
+  jenkins_home:
+  sonar_data:
+  sonar_extensions:
 
 networks:
   lodger-network:
