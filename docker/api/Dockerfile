@@ -3,9 +3,9 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build-env
 WORKDIR /app
 COPY *.sln ./
 COPY src/App/*.csproj ./src/App/
-RUN dotnet restore ./src/App/abe-extranet-api.csproj
+RUN dotnet restore ./src/App/LodgerBackend.csproj
 COPY . .
-RUN dotnet publish ./src/App/abe-extranet-api.csproj -c Release -o out
+RUN dotnet publish ./src/App/LodgerBackend.csproj -c Release -o out
 
 # Étape de runtime (Serveur Web ASP .NET 9)
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS runtime-env
@@ -28,4 +28,4 @@ COPY serilog.json ./
 COPY appsettings*.json ./
 
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "abe-extranet-api.dll"]
+ENTRYPOINT ["dotnet", "LodgerBackend.dll"]
